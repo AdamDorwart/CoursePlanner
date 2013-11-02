@@ -1,10 +1,5 @@
 package com.courseplanner;
 
-
-//import javax.jdo.JDOHelper;
-//import javax.jdo.PersistenceManager;
-//import javax.jdo.PersistenceManagerFactory;
-
 import java.util.ArrayList;
 
 import com.google.appengine.api.datastore.*;
@@ -31,11 +26,9 @@ public class CollegeInfo {
 				+ " Japan</sup></td> <td>HILD 10</td> <td>HILD 11</td> <td>HILD 12</td> </tr> <tr> <td><sup>History of Philosophy</sup></td> <td>PHIL 31</td> <td>PHIL 32</td> <td>PHIL 33</td> </tr> <tr> <td><sup>Introduction to Greeks &amp; Romans</sup></td> <td>LTWL 19A</td> <td>LTWL 19B</td> <td>LTWL 19C</td> </tr> <tr> <td><sup>Introduction to Philosophy</sup></td> <td>Choose 3 from PHIL 1, 13, 14, or 15</td> </tr> <tr> <td><sup>Race &amp; Ethnicity in U.S. History</sup></td> <td>HILD 7A</td> <td>HILD 7B</td> <td>HILD 7C</td> </tr> <tr> <td><sup>Race &amp; Ethnicity in U.S. Literature</sup></td> <td>LTEN 27</td> <td>LTEN 28</td> <td>LTEN 29</td> </tr> <tr> <td><sup>Third World Literature</sup></td> <td>Choose 3 from TWS 21, 22, 23, 24, 25 or 26</td> </tr> <tr> <td><sup>U.S. History</sup></td> <td>HILD 2A</td> <td>HILD 2B</td> <td>HILD 2C</td> </tr> </tbody> </table>");
 		
 		Entity college = new Entity("collegeTable");
-		entities_to_write.add(college);
 		datastore.put(college);
 
 		Entity Muir = new Entity("College", college.getKey());
-		entities_to_write.add(Muir);
 		datastore.put(Muir);
 		
 		Muir.setProperty("name", "Muir");
