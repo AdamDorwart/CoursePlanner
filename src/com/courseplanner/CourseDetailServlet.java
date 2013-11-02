@@ -29,9 +29,13 @@ public class CourseDetailServlet extends HttpServlet {
 		resp.setContentType("application/json");
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
-		Filter courseIDMatch = new FilterPredicate( "ID", FilterOperator.EQUAL, req.getParameter( "course_id"));
 		
-		Query q = new Query("Course").setFilter( courseIDMatch);
+		Filter courseIDMatch = new FilterPredicate( "ID", FilterOperator.EQUAL, req.getParameter( "course_id"));
+			
+		Query courseTableQ = new Query("CourseTable");
+		Entity courseTable = datastore.prepare( courseTableQ).asSingleEntity();
+				
+		Query q = new Query("Course").setAncestor( courseTable.getKey()).setFilter( courseIDMatch);
 		PreparedQuery pq = datastore.prepare(q);
 		Entity result = pq.asSingleEntity();
 		

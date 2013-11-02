@@ -27,25 +27,29 @@ public class CourseInfoServlet extends HttpServlet {
 		
 		JsonArray courseInfo = new JsonArray();
 		
-		Query q = new Query("Course").addSort( "ID", SortDirection.ASCENDING);
+		Query courseTableQ = new Query("CourseTable");
+		Entity courseTable = datastore.prepare( courseTableQ).asSingleEntity();
+		
+		Query q = new Query("Course").setAncestor( courseTable.getKey()).addSort( "ID", SortDirection.ASCENDING);
 		PreparedQuery pq = datastore.prepare(q);
 		for (Entity result : pq.asIterable()) {
 			JsonObject newJsonObj = new JsonObject();
 			try {
-			  newJsonObj.addProperty("course_id", (String)result.getProperty("ID") );
-			  newJsonObj.addProperty("name", (String)result.getProperty("Name") );
-			  newJsonObj.addProperty("type", "GE");
-		  
-			  courseInfo.add(newJsonObj);
+				  newJsonObj.addProperty("course_id", (String)result.getProperty("ID") );
+				  newJsonObj.addProperty("name", (String)result.getProperty("Name") );
+				  newJsonObj.addProperty("units", (String)result.getProperty("Units") );
+				  newJsonObj.addProperty("type", "GE");
+			  
+				  courseInfo.add(newJsonObj);
 			}
 			catch (Exception e) {
-				System.out.println( e.toString());
+					System.out.println( e.toString());
 			}
-
-			  
-			}
+	
+				  
+		}
+		
 		resp.getWriter().print(gson.toJson(courseInfo));
-		
-		
+			
 	}
 }
