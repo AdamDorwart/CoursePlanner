@@ -138,52 +138,22 @@
 
                 <tr>
                   <td
+                    ng-repeat="quarter in year"
                     x-lvl-drop-target="true"
                     x-on-drop="dropped(dragEl, dropEl)"
-                    data-year-number="{{$parent.$index}}"
-                    data-quarter-number="0"
+                    data-year-number="{{$parent.$parent.$index}}"
+                    data-quarter-number="{{ $parent.$index }}"
                     class="quarter fall">
 
                     <ul>
                       <li
-                        ng-repeat="course in $parent.year[0]"
+                        ng-repeat="course in $parent.quarter"
+                        data-course-id = "{{ course.course_id }}"
+                        data-remove-on-drag = "true"
+                        x-lvl-draggable = "true"
                         class="class-item">
                         {{course.course_id}}
-                        <button ng-click="$parent.$parent.removeFromSchedule(course)" class="remove-course">X</button>
-                      </li>
-                    </ul>
-
-                  </td>
-                  <td
-                    x-lvl-drop-target="true"
-                    x-on-drop="dropped(dragEl, dropEl)"
-                    data-year-number="{{$parent.$index}}"
-                    data-quarter-number="1"
-                    class="quarter winter">
-
-                    <ul>
-                      <li
-                        ng-repeat="course in $parent.year[1]"
-                        class="class-item">
-                        {{course.course_id}}
-                        <button ng-click="$parent.$parent.removeFromSchedule(course)" class="remove-course">X</button>
-                      </li>
-                    </ul>
-
-                  </td>
-                  <td
-                    x-lvl-drop-target="true"
-                    x-on-drop="dropped(dragEl, dropEl)"
-                    data-year-number="{{$parent.$index}}"
-                    data-quarter-number="2"
-                    class="quarter spring">
-
-                    <ul>
-                      <li
-                        ng-repeat="course in $parent.year[2]"
-                        class="class-item">
-                        {{course.course_id}}
-                        <button ng-click="$parent.$parent.removeFromSchedule(course)" class="remove-course">X</button>
+                        <button ng-click="$parent.$parent.$parent.removeFromSchedule(course)" class="remove-course">X</button>
                       </li>
                     </ul>
 
