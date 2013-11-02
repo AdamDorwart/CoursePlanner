@@ -6,10 +6,9 @@ import com.google.appengine.api.datastore.*;
 
 
 public class CollegeDatastoreBuilder {
-	
-	public void insertMuirInfo () {
+
+	public void insertMuirInfo (DatastoreService datastore, Key collegeKey) {
 		
-		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 		String[] muirGE = {"MCWP 40","MCWP 50"};
 		ArrayList<Entity> entities_to_write = new ArrayList<Entity>();
@@ -22,10 +21,8 @@ public class CollegeDatastoreBuilder {
 				+ "<tr> <td><sup>German</sup></td> <td>Choose 3 from&nbsp;LIGM 1A+1AX<span>, 1B+1BX, 1C+1CX, or 1D+1DX; or LTFR 2A, 2B, 2C or 50</span></td> </tr> <tr> <td><sup>Hebrew</sup></td> <td>JUDA 1</td> <td>JUDA 2</td> <td>JUDA 3</td> </tr> <tr> <td><sup>Italian</sup></td> <td><span>Choose 3 from&nbsp;LIIT 1A+1AX</span><span>, 1B+1BX, 1C+1CX, or 1D+1DX; or LTIT 2A, 2B or 50</span></td> </tr> <tr> <td><sup>Japanese</sup></td> <td>Choose 3 from<br> JAPN 10A, 10B, 10C, 20A, 20B, or 20C</td> </tr> <tr> <td><sup>Korean</sup></td> <td>Choose 3 from LTKO 1A, 1B, 1C, 2A, 2B, or 2C</td> </tr> <tr> <td><sup>Latin</sup></td> <td>LTLA 1</td> <td>LTLA 2</td> <td>LTLA 3</td> </tr> <tr> <td><sup>Portuguese</sup></td> <td>LIPO 1A+1AX</td> <td>LIPO 1B+1BX</td> <td>LIPO 1C+1CX</td> </tr> <tr> <td><sup>Russian</sup></td> <td>Choose 3 from LTRU 1A, 1B, 1C, 2A, 2B, or 2C</td> </tr> <tr> <td><sup>Spanish</sup></td> <td><span>Choose 3 from&nbsp;LISP 1A+1AX</span><span>, 1B+1BX, 1C+1CX, or 1D+1DX; LISP 2A, 2B, 2C, 2D, 2E, 50A, 50B, or 50C</span></td> </tr> </tbody> </table><table> <tbody> <tr> <td>Sequence</td> <td>Course 1</td> <td>Course 2</td> <td>Course 3</td> </tr> <tr> <td><sup>British &amp; American Literature</sup></td> <td>Choose 3 from LTEN 22, 23, 25, or 26</td> </tr> <tr> <td><sup>Fiction &amp; Film in 20th Century</sup></td> <td>Choose 3 from LTWL 4A, 4B, 4C, 4D, 4F, or 4M</td> </tr> <tr> <td><sup>Fiction, Poetry, &amp; Non-Fiction Writing</sup></td> <td>LTWR 8A</td> <td>LTWR 8B</td> <td>LTWR 8C</td> </tr> <tr> <td><sup>History of China and"
 				+ " Japan</sup></td> <td>HILD 10</td> <td>HILD 11</td> <td>HILD 12</td> </tr> <tr> <td><sup>History of Philosophy</sup></td> <td>PHIL 31</td> <td>PHIL 32</td> <td>PHIL 33</td> </tr> <tr> <td><sup>Introduction to Greeks &amp; Romans</sup></td> <td>LTWL 19A</td> <td>LTWL 19B</td> <td>LTWL 19C</td> </tr> <tr> <td><sup>Introduction to Philosophy</sup></td> <td>Choose 3 from PHIL 1, 13, 14, or 15</td> </tr> <tr> <td><sup>Race &amp; Ethnicity in U.S. History</sup></td> <td>HILD 7A</td> <td>HILD 7B</td> <td>HILD 7C</td> </tr> <tr> <td><sup>Race &amp; Ethnicity in U.S. Literature</sup></td> <td>LTEN 27</td> <td>LTEN 28</td> <td>LTEN 29</td> </tr> <tr> <td><sup>Third World Literature</sup></td> <td>Choose 3 from TWS 21, 22, 23, 24, 25 or 26</td> </tr> <tr> <td><sup>U.S. History</sup></td> <td>HILD 2A</td> <td>HILD 2B</td> <td>HILD 2C</td> </tr> </tbody> </table>");
 		
-		Entity college = new Entity("CollegeTable");
-		datastore.put(college);
 
-		Entity Muir = new Entity("College", college.getKey());
+		Entity Muir = new Entity("College", collegeKey);
 		
 		Muir.setProperty("name", "Muir");
 		Muir.setProperty("description", "Muir College encourages awareness of environmental "
@@ -50,22 +47,19 @@ public class CollegeDatastoreBuilder {
 		System.out.println("Muir works");
 
 	}
-	public void insertMarshallInfo () {
+	public void insertMarshallInfo (DatastoreService datastore, Key collegeKey) {
 		
-		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 		String[] marshallGE = {"DOC 1","DOC 2", "DOC 3"};
 		ArrayList<Entity> entities_to_write = new ArrayList<Entity>();
 		
 		// Strings of table html for misc GEs
 		Text miscText = new Text("Students must complete two (2) courses for Mathematics, Statistics and Logic. Both May come from the Mathematics/Advanced Statistic category.  However, at most, one course may be selected from each of the other categories.");
-		Text area2 = new Text("<table> <tbody> <tr>Mathematics/Advanced Statistics</tr> <tr><td>BIEB 100</td></tr> <tr><td>MATH 180A or 181A</td></tr> <tr><td>MATH 4C</td></tr> <tr><td>MATH 10A</td></tr> <tr><td>MATH 10B</td></tr> <tr><td>MATH 10C</td></tr> <tr><td>MATH 20A</td></tr> <tr><td>MATH 20B</td></tr> <tr><td>MATH 20C</td></tr> </tbody> </table>");
-		Text area3 = new Text(" <table> <tbody> <tr>Introductory Statics</tr> <tr><td>COGS 14</td></tr> <tr><td>POLI 30</td></tr> <tr><td>PSYC 60</td></tr> <tr><td>SOCL 60</td></tr> </tbody> </table>");
-		Text area4 = new Text(" <table> <tbody> <tr>Computer Programming & Logic</tr> <tr><td>CSE 5A</td></tr> <tr><td>CSE 8A</td></tr> <tr><td>CSE 11</td></tr> <tr><td>ECE 85</td></tr> <tr><td>LIGN 17</td></tr> <tr><td>MAE 5</td></tr> <tr><td>MAE 9</td></tr> <tr><td>PHIL 10</td></tr> <tr><td>PHIL 12</td></tr> </tbody> </table>");
-		Entity college = new Entity("CollegeTable");
-		datastore.put(college);
+		Text area1 = new Text("<table> <tbody> <tr>Mathematics/Advanced Statistics</tr> <tr><td>BIEB 100</td></tr> <tr><td>MATH 180A or 181A</td></tr> <tr><td>MATH 4C</td></tr> <tr><td>MATH 10A</td></tr> <tr><td>MATH 10B</td></tr> <tr><td>MATH 10C</td></tr> <tr><td>MATH 20A</td></tr> <tr><td>MATH 20B</td></tr> <tr><td>MATH 20C</td></tr> </tbody> </table>");
+		Text area2 = new Text(" <table> <tbody> <tr>Introductory Statics</tr> <tr><td>COGS 14</td></tr> <tr><td>POLI 30</td></tr> <tr><td>PSYC 60</td></tr> <tr><td>SOCL 60</td></tr> </tbody> </table>");
+		Text area3 = new Text(" <table> <tbody> <tr>Computer Programming & Logic</tr> <tr><td>CSE 5A</td></tr> <tr><td>CSE 8A</td></tr> <tr><td>CSE 11</td></tr> <tr><td>ECE 85</td></tr> <tr><td>LIGN 17</td></tr> <tr><td>MAE 5</td></tr> <tr><td>MAE 9</td></tr> <tr><td>PHIL 10</td></tr> <tr><td>PHIL 12</td></tr> </tbody> </table>");
 
-		Entity marshall = new Entity("College", college.getKey());
+		Entity marshall = new Entity("College", collegeKey);
 		
 		marshall.setProperty("name", "Marshall");
 		Text marshallDesc = new Text("Thurgood Marshall College, formerly known as Third College, was founded in 1970 in a period "
@@ -85,8 +79,8 @@ public class CollegeDatastoreBuilder {
 		
 		Entity marshall_misc_GEReq = new Entity("MiscGEReqCourse",marshall.getKey());
 		marshall_misc_GEReq.setProperty("Misc Text", miscText);
-		marshall_misc_GEReq.setProperty("Area 1", area2);
-		marshall_misc_GEReq.setProperty("Area 2", area3);
+		marshall_misc_GEReq.setProperty("Area 1", area1);
+		marshall_misc_GEReq.setProperty("Area 2", area2);
 		marshall_misc_GEReq.setProperty("Area 3", area3);
 
 		entities_to_write.add(marshall_misc_GEReq);
@@ -94,9 +88,8 @@ public class CollegeDatastoreBuilder {
 		System.out.println("Marshall works");
 
 	}
-	public void insertRevelleInfo () {
+	public void insertRevelleInfo (DatastoreService datastore, Key collegeKey) {
 		
-		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 		String[] revelleGE = {"HUM 1","HUM 2", "HUM 3", "HUM 4", "HUM 5"};
 		ArrayList<Entity> entities_to_write = new ArrayList<Entity>();
@@ -118,10 +111,8 @@ public class CollegeDatastoreBuilder {
 				+ "Passing a foreign language proficiency exam which consists of a satisfactory score on a standard reading examination and conversational proficiency in an oral interview. Completion of a fourth quarter (or higher level) college language course (completion of a third semester Intermediate level course if taken outside of UCSD). Appropriate AP or IB score (see chart). Score of 700 or higher on the SAT Subject Test in a foreign language. A native speaker of a language other than English and having attended at least one year of high school taught in that language.");
 		Text miscText6 = new Text("Revelle College requires students to explore an area outside of their major field. This requirement may be met in one of the following two ways: THE AREA OF FOCUS Three courses (12 units) in an area noncontiguous to the major focused in one department subject area, or topic. OR THE MINOR Seven courses (28 units) at least five of which must be upper division, and a minimum of three courses noncontiguous to the major. Additional courses may be required by some departments. Exception: Lit/Language minors require three lower division and four upper division courses.");
 
-		Entity college = new Entity("CollegeTable");
-		datastore.put(college);
 
-		Entity revelle = new Entity("College", college.getKey());
+		Entity revelle = new Entity("College", collegeKey);
 		
 		revelle.setProperty("name", "Revelle");
 		Text revelleDesc = new Text("Revelle College, established in 1964, was the first college established at UCSD.  It was named in honor of UCSD's founder, Roger Revelle, a man the New York Times described as one of the world's most articulate spokesmen for science. A recipient of the President's Medal for Science, Revelle is best known for his seminal work on global warming.");
@@ -152,9 +143,8 @@ public class CollegeDatastoreBuilder {
 		System.out.println("Revelle works");
 
 	}
-	public void insertERCInfo () {
+	public void insertERCInfo (DatastoreService datastore, Key collegeKey) {
 		
-		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 		String[] ERCGE = {"MMW 11","MMW 12", "MMW 13", "MMW 14", "MMW 15"};
 		ArrayList<Entity> entities_to_write = new ArrayList<Entity>();
@@ -168,10 +158,8 @@ public class CollegeDatastoreBuilder {
 		Text area3 = new Text("<table> <tbody> <tr> <th>Group A: Non-Western Fine Arts</th> <th>Group B: Other Fine Arts</th> </tr> <tr> <td> <p>Music: 13AM, 13AF, 13AS</p> <p>Visual Arts: 21A &amp; 21B</p> <p>Any other 4-unit course from the departments of Music, Theatre and Dance, or Visual Arts with non-Western content may be petitioned <strong>before</strong> taking the course.</p> </td> <td>Any other 4-unit course, including performance, studio, or theory, and upper-division courses from from the departments of Music, Theatre and Dance, or Visual Arts.</td> </tr> </tbody> </table>");
 		Text miscText4 = new Text("Three 4-unit courses from ONE designated geographic region. At least two of the three must be upper division courses. One of the three may be taken P/NP; the other two must be taken for letter grades. Students entering as freshmen must complete three 4-unit courses from one region. At least two of the three courses must be upper division (numbered 100 or higher). Two of the three courses must be taken for letter grades; the other one may be taken Pass/No Pass. Transfer students must take two 4-unit upper-division courses from the same region, one of which may be taken Pass/No Pass. Regional Specialization course lists are available through the links below. Courses not on the approved lists must be petitioned before taking the class. You may choose courses from approved departmental offerings in the humanities, social sciences, and fine arts. A list of approved courses for each region is available below. Courses not on the list must be petitioned before taking the course.");
 		Text miscText5 = new Text(" <p>At least one upper-division course <strong>(numbered 100-199)</strong> in your academic program must include a significant writing component in English.</p> <p><strong><a href='../../_files/UDW List 2013-2014.pdf'>Click to view approved UDW List (PDF)</a><a href='../../_files/academics/UDW List 2012-2013.pdf'><br> </a></strong></p> <p><em>If you believe you have met the requirement using a course that is not included on our approved list, submit course syllabus and graded paper using Option A or B below:</em></p> <p><br> <strong>OPTION A:</strong> Submit one original graded long paper (2500-word minimum, approximately 10 - 12 pages) written for any upper-division course within or outside of your major.<br> <br> <strong>OPTION B:</strong> Submit a portfolio of original papers written for one or more upper-division courses within or outside of your major. The portfolio must include one paper of 1500 words or more (approximately 5-6 pages), and a minimum total word count of 3000 for the entire porfolio (i.e., one 1500 word paper plus several shorter papers).&nbsp; The papers for the potfolio must be submitted together.<br> <br> For both options, the paper(s) must be written in English and have received a passing or C- grade.&nbsp; You must also have received a passing grade in the course for which the paper was written.&nbsp; The writing should demonstrate invention of a thesis, an original argument, and development of the argument with evidence and analysis.&nbsp; Papers need not include secondary sources.&nbsp; Papers may include description, provided a significant portion of the paper is devoted to an analysis of the description.&nbsp; Poetry, short stories, in-class exams, group projects, and laboratory reports are NOT acceptable to meet this requirement.&nbsp;</p> <p>To facilitate processing, please do a word count before submitting the paper/portfolio to the ERC Academic Advising Office.&nbsp; We return your paper(s) immediately. Photocopies are not necessary.</p> ");
-		Entity college = new Entity("CollegeTable");
-		datastore.put(college);
 
-		Entity ERC = new Entity("College", college.getKey());
+		Entity ERC = new Entity("College", collegeKey);
 		
 		ERC.setProperty("name", "ERC");
 		Text ERCDesc = new Text("Eleanor Roosevelt College (ERC) is one of the six colleges located on the campus at the University of California, San Diego. The college was named after former American First Lady Eleanor Roosevelt, who was a humanitarian as well as a champion of international cooperation and a major member of the early United Nations.");
@@ -200,9 +188,8 @@ public class CollegeDatastoreBuilder {
 
 	}
 
-	public void insertWarrenInfo () {
+	public void insertWarrenInfo (DatastoreService datastore, Key collegeKey) {
 	
-	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 	String[] warrenGE = {"WCWP 10A","WCWP 10B"};
 	ArrayList<Entity> entities_to_write = new ArrayList<Entity>();
@@ -214,10 +201,8 @@ public class CollegeDatastoreBuilder {
 	Text miscText3 = new Text("Programs of Concentration: Two Programs of Concentration (PofCs) are required. Each must contain six, 4-unit courses (total of 24 units), at least three of which must be upper-division (courses numbered 100-199). Lower-division courses in PofCs may overlap with lower-division major courses. NO overlap is allowed in the upper-division courses. For students entering fall 2009 and after, only one PofC may be chosen from EAP, Humanities, Science and Technology, or Perspectives of Social Science. PofCs must be non-contiguous to your major and to each other.");
 	Text miscText4 = new Text("Area Studies: For Engineering majors, B.S. only, two Area Studies (AS) are required. Each must contain three, 4-unit courses (total of 12 units), at least two of which must be upper-division. For students entering before fall 2009, only one course must be upper-division. Area Studies must be non-contiguous to the major and to each other.");
 	Text miscText5 = new Text("Minors: Academic minors are optional, however, a minor may be used in lieu of a Program of Concentration or Area Study if it is noncontiguous to the major and the other Program of Concentration or Area Study. There may be no overlap between major and minor coursework at the upper-division level. For specific requirements, see the minor department.");
-	Entity college = new Entity("CollegeTable");
-	datastore.put(college);
 
-	Entity warren = new Entity("College", college.getKey());
+	Entity warren = new Entity("College", collegeKey);
 	
 	warren.setProperty("name", "Warren");
 
@@ -245,9 +230,8 @@ public class CollegeDatastoreBuilder {
 
 	}
 
-	public void insertSixthInfo () {
+	public void insertSixthInfo (DatastoreService datastore, Key collegeKey) {
 	
-	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 	String[] sixthGE = {"CAT 1","CAT 2","CAT 3"};
 	ArrayList<Entity> entities_to_write = new ArrayList<Entity>();
@@ -257,10 +241,8 @@ public class CollegeDatastoreBuilder {
 	Text miscText2 = new Text("Breadth Requirements: Students must take 12 breadth courses encompassing a variety of disciplines. Social Analysis (2 social science courses) Narrative, Aesthetic, and Historical Reasoning (2 humanities courses) Analytical and Scientific Methods (2 science courses) Structured Reasoning (1 math/ logic course) Exploring Data (1 statistics course. This area can overlap with your major requirements) Societal Context (2 courses) Social Context Ethical Context (This area can overlap with your major requirements) Art Making (8 units)");
 	Text miscText3 = new Text("Upper Division Requirements: Practicum course or project (This area can overlap with your major requirements) CAT 125 (Public Rhetoric and Practical Communication)");
 	Text miscText4 = new Text("<a href='../../_files/GE_2013-2014_withBoxes.pdf' target='_blank'>Sixth College General Education (GE) requirements&nbsp;</a>");
-	Entity college = new Entity("CollegeTable");
-	datastore.put(college);
 
-	Entity sixth = new Entity("College", college.getKey());
+	Entity sixth = new Entity("College", collegeKey);
 	
 	sixth.setProperty("name", "Sixth");
 	Text sixthDesc = new Text("Inaugurated at the dawn of a new century, Sixth College prepares our students to become dynamic and engaged citizens of the 21st century—innovative, creative and interconnected. Our core academic programs develop skills in both traditional and emergent media literacy, emphasizing essential writing fundamentals as well as the latest forms of digital communication.");
