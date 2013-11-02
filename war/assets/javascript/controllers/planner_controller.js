@@ -28,6 +28,9 @@
           return;
         }
 
+        // Removes a course which was already on the schedule before
+        // readding it, as to allow for a course to be moved around
+        // the page.
         if(drag.attr("data-remove-on-drag")) {
           $scope.removeFromSchedule(course);
         }
@@ -75,6 +78,48 @@
       return wasFound;
     }
 
+    $scope.moveUp = function(course) {
+
+      $scope.years.forEach(function(year) {
+
+        year.forEach(function(quarter) {
+
+          var index = indexOfObject(quarter, function(c) {
+            return c.course_id === course.course_id;
+          });
+
+          if(index !== -1) {
+            quarter.splice(index, 1);
+            quarter.splice(index-1, 0, course);
+          }
+
+        });
+
+      });
+
+    };
+
+    $scope.moveDown = function(course) {
+
+      $scope.years.forEach(function(year) {
+
+        year.forEach(function(quarter) {
+
+          var index = indexOfObject(quarter, function(c) {
+            return c.course_id === course.course_id;
+          });
+
+          if(index !== -1) {
+            quarter.splice(index, 1);
+            quarter.splice(index+1, 0, course);
+          }
+
+        });
+
+      });
+
+    };
+
     $scope.removeFromSchedule = function(course) {
 
       console.log('removing', course);
@@ -84,14 +129,9 @@
 
         year.forEach(function(quarter) {
 
-          // fake indexof to handle objects
-          var index = -1;
-          for(var i = 0, len = quarter.length; i < len; i++) {
-              if (quarter[i].course_id === course.course_id) {
-                  index = i;
-                  break;
-              }
-          }
+          var index = indexOfObject(quarter, function(c) {
+            return c.course_id === course.course_id;
+          });
 
           console.log("found at ", index);
 
@@ -103,6 +143,18 @@
         });
       });
     };
+
+    function indexOfObject(haystack, comparitor) {
+      var index = -1;
+      for(var i = 0, len = haystack.length; i < len; i++) {
+          if (comparitor(haystack[i])) {
+              index = i;
+              break;
+          }
+      }
+
+      return index;
+    }
 
   }]);
 

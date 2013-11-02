@@ -153,7 +153,22 @@
                         x-lvl-draggable = "true"
                         class="class-item">
                         {{course.course_id}}
-                        <button ng-click="$parent.$parent.$parent.removeFromSchedule(course)" class="remove-course">X</button>
+                        <a
+                          ng-click="$parent.$parent.$parent.removeFromSchedule(course)"
+                          class="class-item-button"
+                          title="Remove Course">X</a>
+                        <a
+                          ng-click="$parent.$parent.$parent.moveUp(course)"
+                          class="class-item-button"
+                          title="Move Course Up"
+                          ng-show="!$first"
+                          >▲</a>
+                        <a
+                          ng-click="$parent.$parent.$parent.moveDown(course)"
+                          class="class-item-button"
+                          title="Move Course Down"
+                          ng-show="!$last"
+                          >▼</a>
                       </li>
                     </ul>
 
