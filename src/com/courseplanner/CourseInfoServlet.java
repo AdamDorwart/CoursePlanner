@@ -37,6 +37,7 @@ public class CourseInfoServlet extends HttpServlet {
 			try {
 				  newJsonObj.addProperty("course_id", (String)result.getProperty("ID") );
 				  newJsonObj.addProperty("name", (String)result.getProperty("Name") );
+				  newJsonObj.addProperty("units", (String)result.getProperty("Units") );
 				  newJsonObj.addProperty("type", "GE");
 			  
 				  courseInfo.add(newJsonObj);
