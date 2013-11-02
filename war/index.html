@@ -186,7 +186,7 @@
           ng-controller="DetailsPaneController"
           ng-show="course">
 
-          <div class="head">{{ course.course_id }}</div>
+          <div class="head">{{ course.course_id }} <small><i>({{ course.units }} units)</i></small></div>
           <div class="subhead">{{ course.name }}</div>
           <hr>
 
