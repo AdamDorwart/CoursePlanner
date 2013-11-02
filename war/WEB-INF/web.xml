@@ -12,6 +12,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>CoursePlanner</servlet-name>
 		<url-pattern>/courseplanner</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>CourseDatastore</servlet-name>
+		<servlet-class>com.courseplanner.CourseDatastoreServletBuilder</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>CourseDatastore</servlet-name>
+		<url-pattern>/coursedatastore</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 	    <servlet-name>CurrentUser</servlet-name>
