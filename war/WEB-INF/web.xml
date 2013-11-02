@@ -21,13 +21,21 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <servlet-name>CurrentUser</servlet-name>
 	    <url-pattern>/current_user</url-pattern>
 	</servlet-mapping>
-		<servlet>
+	<servlet>
 	    <servlet-name>CollegeDatastoreBuilder</servlet-name>
 	    <servlet-class>com.courseplanner.CollegeDatastoreBuilderServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>CollegeDatastoreBuilder</servlet-name>
 	    <url-pattern>/collegeDatastore_builder</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>MajorDatastoreBuilder</servlet-name>
+		<servlet-class>com.courseplanner.MajorDatastoreBuilderServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MajorDatastoreBuilder</servlet-name>
+		<url-patter>/majorDatastoreBuilder</url-patter>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
