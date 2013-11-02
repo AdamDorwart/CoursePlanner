@@ -27,11 +27,11 @@
     $scope.showMrClasses = true;
     $scope.showMeClasses = true;
 
-    function updateFilteredClasses() {
+    var updateFilteredClasses = _.debounce(function() {
       $scope.geClasses = $filter('filter')($scope.classes, searchFilter("GE"));
       $scope.mrClasses = $filter('filter')($scope.classes, searchFilter("MR"));
       $scope.meClasses = $filter('filter')($scope.classes, searchFilter("ME"));
-    }
+    }, 100);
 
     $scope.$watch("searchString", updateFilteredClasses);
     $scope.$watch("classes", updateFilteredClasses);

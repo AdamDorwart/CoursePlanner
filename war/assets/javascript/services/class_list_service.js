@@ -10,41 +10,6 @@
         return;
       }
 
-     /* var dummy_data = [
-        {
-          id: 0,
-          course_id: "CAT1",
-          name: "Culture, Art, and Technology 1",
-          type: "ME"
-        },
-
-        {
-          id: 1,
-          course_id: "ANTH23",
-          name: "Debating Multiculturalism",
-          type: "GE"
-        },
-
-        {
-          id: 2,
-          course_id: "CSE11",
-          name: "Intro to Java and OOP Design",
-          type: "MR"
-        },
-
-        {
-          id: 3,
-          course_id: "CSE12",
-          name: "Discrete Mathematics",
-          type: "MR"
-        }
-      ];
-      */
-      // For now, use this dummy data
-      //dummy_data.forEach(function(c) {
-      //  mappedCourses[c.course_id] = c;
-      //});
-
       //cb(mappedCourses);
       mappedCourses = {};
 
