@@ -20,13 +20,15 @@
       {
         $scope.years = coursesJson;
       }
+
+
     });
 
-    $scope.$watch('years', function(newYears) {
+    function update() {
       $http.post("/current_user", JSON.stringify({
-        courseJsonString: JSON.stringify(newYears)
+        courseJsonString: JSON.stringify($scope.years)
       }));
-    }, true);
+    }
 
     $scope.dropped = function(dragElem, dropElem) {
       var drag = angular.element(dragElem);
@@ -66,6 +68,8 @@
         $scope.years[yearNum][quarterNum].push(course); // push(course);
         $scope.$digest();
         console.log($scope.years);
+
+        update();
       });
     };
 
@@ -108,6 +112,7 @@
 
       });
 
+      update();
     };
 
     $scope.moveDown = function(course) {
@@ -129,6 +134,7 @@
 
       });
 
+      update();
     };
 
     $scope.removeFromSchedule = function(course) {
@@ -153,6 +159,8 @@
 
         });
       });
+
+      update();
     };
 
     function indexOfObject(haystack, comparitor) {
