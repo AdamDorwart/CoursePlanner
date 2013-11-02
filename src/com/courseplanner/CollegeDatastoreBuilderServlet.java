@@ -3,6 +3,9 @@ import java.io.IOException;
 
 import javax.servlet.http.*;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -12,13 +15,17 @@ public class CollegeDatastoreBuilderServlet extends HttpServlet {
 
 		public void doGet(HttpServletRequest req, HttpServletResponse resp)
 				throws IOException {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		    Entity college = new Entity("CollegeTable");
+		    datastore.put(college);
 	        CollegeDatastoreBuilder test = new CollegeDatastoreBuilder();
-	        test.insertMuirInfo();
-	        test.insertMarshallInfo();
-	        test.insertERCInfo();
-	        test.insertRevelleInfo();
-	        test.insertSixthInfo();
-	        test.insertWarrenInfo();
+	        
+	        test.insertMuirInfo(datastore, college.getKey());
+	        test.insertMarshallInfo(datastore, college.getKey());
+	        test.insertERCInfo(datastore, college.getKey());
+	        test.insertRevelleInfo(datastore, college.getKey());
+	        test.insertSixthInfo(datastore, college.getKey());
+	        test.insertWarrenInfo(datastore, college.getKey());
 	        
 			UserService userService = UserServiceFactory.getUserService();
 	        User user = userService.getCurrentUser();

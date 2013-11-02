@@ -4,9 +4,7 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-<<<<<<< HEAD
 
-=======
 	<servlet>
 		<servlet-name>CoursePlanner</servlet-name>
 		<servlet-class>com.courseplanner.CoursePlannerServlet</servlet-class>
@@ -23,7 +21,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>CourseDatastore</servlet-name>
 		<url-pattern>/coursedatastore</url-pattern>
 	</servlet-mapping>
->>>>>>> 50dd81430082f02f6a43d262c8de30a22b658463
 	
 	<servlet>
 	    <servlet-name>CurrentUser</servlet-name>
@@ -32,6 +29,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 	    <servlet-name>CurrentUser</servlet-name>
 	    <url-pattern>/current_user</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	    <servlet-name>CourseInfoServlet</servlet-name>
+	    <servlet-class>com.courseplanner.CourseInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>CourseInfoServlet</servlet-name>
+	    <url-pattern>/course_info</url-pattern>
 	</servlet-mapping>
 		<servlet>
 	    <servlet-name>CollegeDatastoreBuilder</servlet-name>

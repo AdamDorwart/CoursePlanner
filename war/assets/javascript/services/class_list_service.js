@@ -10,7 +10,7 @@
         return;
       }
 
-      var dummy_data = [
+     /* var dummy_data = [
         {
           id: 0,
           course_id: "CAT1",
@@ -39,26 +39,26 @@
           type: "MR"
         }
       ];
-
+      */
       // For now, use this dummy data
+      //dummy_data.forEach(function(c) {
+      //  mappedCourses[c.course_id] = c;
+      //});
+
+      //cb(mappedCourses);
       mappedCourses = {};
-      dummy_data.forEach(function(c) {
-        mappedCourses[c.course_id] = c;
-      });
 
-      cb(mappedCourses);
+       $http.get("/course_info")
+       .success(function(courseArray) {
+         angular.forEach(courseArray, function(c) {
+           mappedCourses[c.id] = c;
+         });
 
-      // $http.get("/classes")
-      // .success(function(courseArray) {
-      //   courseArray.each(function(c) {
-      //     mappedCourses[c.id] = c;
-      //   });
-
-      //   cb(mappedCourses);
-      // })
-      // .error(function(data) {
-      //   console.log("Error retrieving class list: ", data);
-      // });
+         cb(mappedCourses);
+       })
+       .error(function(data) {
+         console.log("Error retrieving class list: ", data);
+       });
     };
 
     var courseForElem = function(elem, cb) {
