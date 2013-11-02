@@ -162,18 +162,6 @@
                           ng-click="$parent.$parent.$parent.removeFromSchedule(course)"
                           class="class-item-button"
                           title="Remove Course">X</a>
-                        <a
-                          ng-click="$parent.$parent.$parent.moveUp(course)"
-                          class="class-item-button"
-                          title="Move Course Up"
-                          ng-show="!$first"
-                          >▲</a>
-                        <a
-                          ng-click="$parent.$parent.$parent.moveDown(course)"
-                          class="class-item-button"
-                          title="Move Course Down"
-                          ng-show="!$last"
-                          >▼</a>
                       </li>
                     </ul>
 
@@ -190,7 +178,13 @@
           class="row details-pane"
           ng-controller="DetailsPaneController">
 
+          <div class="head">{{ course.course_id }}</div>
+          <div class="subhead">{{ course.name }}</div>
+          <hr>
 
+          <div class="prereqs">Pre/Coreqs: {{ course.prereq }}</div>
+          <hr>
+          <div class="details">Course Description <i>{{ course.details }}</i></div>
 
         </div>
 

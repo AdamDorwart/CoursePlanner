@@ -15,9 +15,9 @@
     });
 
     UserService.get(function(user) {
-      var coursesJson = JSON.parse(user.courseJsonString);
-      if(coursesJson)
+      if(user.courseJsonString)
       {
+        var coursesJson = JSON.parse(user.courseJsonString);
         $scope.years = coursesJson;
       }
 

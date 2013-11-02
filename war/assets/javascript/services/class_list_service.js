@@ -51,7 +51,7 @@
        $http.get("/course_info")
        .success(function(courseArray) {
          angular.forEach(courseArray, function(c) {
-           mappedCourses[c.id] = c;
+           mappedCourses[c.course_id] = c;
          });
 
          cb(mappedCourses);

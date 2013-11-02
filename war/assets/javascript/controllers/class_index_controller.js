@@ -21,20 +21,25 @@
           $scope.classes.push(classes[key]);
         }
       }
-
     });
 
     $scope.showGeClasses = true;
     $scope.showMrClasses = true;
     $scope.showMeClasses = true;
 
-    $scope.$watch("searchString", function() {
+    function updateFilteredClasses() {
       $scope.geClasses = $filter('filter')($scope.classes, searchFilter("GE"));
       $scope.mrClasses = $filter('filter')($scope.classes, searchFilter("MR"));
       $scope.meClasses = $filter('filter')($scope.classes, searchFilter("ME"));
-    });
+    }
+
+    $scope.$watch("searchString", updateFilteredClasses);
+    $scope.$watch("classes", updateFilteredClasses);
 
     function hasSubstr(needle, haystack) {
+      if(!haystack) {
+        return false;
+      }
       return haystack.toLowerCase().indexOf(needle) !== -1;
     }
 
