@@ -149,7 +149,7 @@
                         ng-repeat="course in $parent.year[0]"
                         class="class-item">
                         {{course.course_id}}
-                        <button ng-click="removeFromSchedule(course)" class="remove-course">X</button>
+                        <button ng-click="$parent.$parent.removeFromSchedule(course)" class="remove-course">X</button>
                       </li>
                     </ul>
 
@@ -166,7 +166,7 @@
                         ng-repeat="course in $parent.year[1]"
                         class="class-item">
                         {{course.course_id}}
-                        <button ng-click="removeFromSchedule(course)" class="remove-course">X</button>
+                        <button ng-click="$parent.$parent.removeFromSchedule(course)" class="remove-course">X</button>
                       </li>
                     </ul>
 
@@ -183,7 +183,7 @@
                         ng-repeat="course in $parent.year[2]"
                         class="class-item">
                         {{course.course_id}}
-                        <button ng-click="removeFromSchedule(course)" class="remove-course">X</button>
+                        <button ng-click="$parent.$parent.removeFromSchedule(course)" class="remove-course">X</button>
                       </li>
                     </ul>
 
