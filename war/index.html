@@ -138,6 +138,7 @@
 
             <table class="quarter-header">
               <tr>
+                <td class="year-label"></td>
                 <td>Fall</td>
                 <td>Winter</td>
                 <td>Spring</td>
@@ -150,6 +151,7 @@
                 ng-repeat="year in years">
 
                 <tr>
+                  <td class="year-label">Year {{ $index+1 }}</td>
                   <td
                     ng-repeat="quarter in year"
                     x-lvl-drop-target="true"
@@ -174,6 +176,10 @@
                           title="Remove Course">X</a>
                       </li>
                     </ul>
+
+                    <div class="total-units" ng-show="$parent.quarter.length">
+                      Total Units: {{ $parent.totalUnits(quarter) }}
+                    </div>
 
                   </td>
                 </tr>

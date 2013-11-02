@@ -185,6 +185,18 @@
       DetailsPaneService.clear();
     };
 
+    $scope.totalUnits = function(quarter) {
+      var total = 0;
+
+      if(!quarter) { return total; }
+
+      quarter.forEach(function(course) {
+        total += course.units;
+      });
+
+      return total;
+    }
+
   }]);
 
 })();
