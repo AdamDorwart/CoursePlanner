@@ -43,14 +43,16 @@ public class CurrentUserServlet extends HttpServlet {
 		} else {
 			Key userKey = KeyFactory.createKey("UserTable", user.getUserId());
 
-			Query query = new Query("UserData").addFilter("user",Query.FilterOperator.EQUAL, user).setAncestor(userKey);
+			Filter currentUser = new FilterPredicate("user",Query.FilterOperator.EQUAL, user );
+			
+			Query query = new Query("UserData").setFilter( currentUser).setAncestor(userKey);
 
 			PreparedQuery userQuery = datastore.prepare(query);
 			Entity userDataEntity = userQuery.asSingleEntity();
 			respJson = gson.toJsonTree(user);
 
 			if (userDataEntity != null) {
-				String courseJsonString = ((Text) userDataEntity.getProperty("courseJsonString")).getValue();
+				String courseJsonString = (String) userDataEntity.getProperty("courseJsonString");
 				respJson.getAsJsonObject().addProperty("courseJsonString",courseJsonString);
 			}
 			respJson.getAsJsonObject().addProperty("logoutUrl",userService.createLogoutURL(userService.createLoginURL("/")));
