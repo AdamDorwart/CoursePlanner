@@ -4,7 +4,18 @@
   [       "$scope", "ClassListService",
   function($scope,   ClassListService) {
 
+    // Four years per whatever
     $scope.years = [ [], [], [], [] ];
+
+    $scope.years.forEach(function(year) {
+      // Three quarters per year
+      year.push([]);
+      year.push([]);
+      year.push([]);
+    });
+
+    console.log($scope.years);
+
 
     $scope.dropped = function(dragElem, dropElem) {
       var drag = angular.element(dragElem);
@@ -17,12 +28,16 @@
           return;
         }
 
+        if(drag.attr("data-remove-on-drag")) {
+          $scope.removeFromSchedule(course);
+        }
+
+
         // Get the year/quarter that this is
 
         var yearNum = drop.attr("data-year-number");
         var quarterNum = drop.attr("data-quarter-number");
 
-        // debugger;
         var year = $scope.years[yearNum];
 
         if(!year[quarterNum]) {
