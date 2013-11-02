@@ -18,7 +18,7 @@ public class MajorDatastoreBuilderServlet extends HttpServlet {
 		
 		try {
 			System.out.println("Attempting to build major table...");
-			
+			resp.getWriter().print("Attempting to build major table...");
 			ServletContext context = getServletContext();
 			InputStream is = context.getResourceAsStream( majorTableJsonPath);
 			
@@ -26,10 +26,13 @@ public class MajorDatastoreBuilderServlet extends HttpServlet {
 			
 			MajorDatastoreBuilder.jsonToDatastore( jsonString);
 			System.out.println("Major Table built!");
+			resp.getWriter().print("\nMajor Table built!");
 		} catch ( Exception e) {
 			System.out.println("Uh-oh...");
 			System.out.println( e.toString());
 		}
+		
+		
 		
 	}
 }
