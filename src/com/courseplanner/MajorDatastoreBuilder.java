@@ -29,7 +29,6 @@ public class MajorDatastoreBuilder {
 			entitiesToWriteListA.add( major);
 			
 			major.setProperty( "Name", majorTable[i].getName());
-			major.setProperty( "Code", majorTable[i].getCode());
 			major.setProperty( "Description", new Text(majorTable[i].getDescription()));
 			
 			String[] reqCourseStr = majorTable[i].getReqCourse();
