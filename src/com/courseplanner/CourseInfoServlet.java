@@ -11,7 +11,7 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
-
+import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -27,14 +27,13 @@ public class CourseInfoServlet extends HttpServlet {
 		
 		JsonArray courseInfo = new JsonArray();
 		
-		Query q = new Query("Course");
+		Query q = new Query("Course").addSort( "ID", SortDirection.ASCENDING);
 		PreparedQuery pq = datastore.prepare(q);
 		for (Entity result : pq.asIterable()) {
 			JsonObject newJsonObj = new JsonObject();
 			try {
 			  newJsonObj.addProperty("course_id", (String)result.getProperty("ID") );
 			  newJsonObj.addProperty("name", (String)result.getProperty("Name") );
-			  newJsonObj.addProperty("units", (String)result.getProperty("Units") );
 			  newJsonObj.addProperty("type", "GE");
 		  
 			  courseInfo.add(newJsonObj);
