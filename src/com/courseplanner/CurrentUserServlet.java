@@ -24,6 +24,8 @@ public class CurrentUserServlet extends HttpServlet {
         Gson gson = new Gson();
         resp.setContentType("application/json");  
         
+
+        
         JsonElement respJson;
         
         if(user == null)
