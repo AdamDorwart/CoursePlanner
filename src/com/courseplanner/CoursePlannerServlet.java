@@ -12,11 +12,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 @SuppressWarnings("serial")
 public class CoursePlannerServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
-        CollegeInfo test = new CollegeInfo();
-        test.insertCollegeInfo();
-        DataStructureBuilder dsb = new DataStructureBuilder();
-        
+			throws IOException {        
 		UserService userService = UserServiceFactory.getUserService();
         User user = userService.getCurrentUser();
 		
