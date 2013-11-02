@@ -181,8 +181,18 @@
       DetailsPaneService.setDetailFromCourse(course);
     };
 
-    $scope.clearDetails = function() {
-      DetailsPaneService.clear();
+    $scope.totalUnits = function(quarter) {
+      var total = 0;
+
+      console.log("Total units for: ", quarter);
+
+      if(!quarter) { return total; }
+
+      quarter.forEach(function(course) {
+        total += parseInt(course.units);
+      });
+
+      return total;
     };
 
   }]);

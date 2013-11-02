@@ -35,13 +35,13 @@ meta.foundation-mq-large {
     text-align: center;
     border: 1px solid #333333;
     border-bottom: none;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em; }
+    border-top-left-radius: .2em;
+    border-top-right-radius: .2em; }
   .planner .year-rows {
     border: 1px solid #333333;
     border-top: none;
-    border-bottom-right-radius: 1em;
-    border-bottom-left-radius: 1em; }
+    border-bottom-right-radius: .2em;
+    border-bottom-left-radius: .2em; }
     .planner .year-rows table {
       border-collapse: collapse; }
     .planner .year-rows table td, .planner .year-rows table th {
@@ -64,15 +64,22 @@ meta.foundation-mq-large {
       margin: 0; }
     .planner .year-rows .quarter {
       padding: 1em; }
-  .planner .class-item {
-    border: 1px solid #333333; }
+  .planner li + li {
+    border-top: 1px dotted #333333; }
   .planner .class-item-button {
     background-color: #333333;
     color: white;
     float: right;
     height: 1.2em; }
   .planner .class-item {
+    overflow: hidden;
     padding: .25em; }
+  .planner .year-label {
+    width: 4em;
+    text-align: center; }
+  .planner .total-units {
+    font-size: .5em;
+    float: right; }
 
 .details-pane {
   padding: 1em; }

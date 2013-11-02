@@ -20,8 +20,8 @@
     border: 1px solid $topbar-bg;
     border-bottom: none;
 
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
+    border-top-left-radius: .2em;
+    border-top-right-radius: .2em;
   }
 
   .year-rows {
@@ -50,8 +50,8 @@
     border: 1px solid $topbar-bg;
     border-top: none;
 
-    border-bottom-right-radius: 1em;
-    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: .2em;
+    border-bottom-left-radius: .2em;
 
     .year {
       width: 100%;
@@ -69,8 +69,8 @@
     }
   }
 
-  .class-item {
-    border: 1px solid $topbar-bg;
+  li + li {
+    border-top: 1px dotted $topbar-bg;
   }
 
   .class-item-button {
@@ -82,7 +82,19 @@
   }
 
   .class-item {
+    // border-top: 1px solid $topbar-bg;
+    overflow: hidden;
     padding: .25em;
+  }
+
+  .year-label {
+    width: 4em;
+    text-align: center;
+  }
+
+  .total-units {
+    font-size: .5em;
+    float: right;
   }
 }
 
