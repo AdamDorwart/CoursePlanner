@@ -17,6 +17,7 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.api.datastore.Text;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -92,7 +93,7 @@ public class CurrentUserServlet extends HttpServlet {
 		JsonElement jelem = gson.fromJson(jb.toString(), JsonElement.class);
 		String courseJsonString = jelem.getAsJsonObject().get("courseJsonString").getAsString();
 
-		userDataEntity.setProperty("courseJsonString", courseJsonString);
+		userDataEntity.setProperty("courseJsonString", new Text(courseJsonString));
 		datastore.put(userDataEntity);
 	}
 }
