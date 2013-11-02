@@ -3,5 +3,7 @@
 *.sublime-workspace
 .DS_Store
 
+appengine-generated
+
 .sass-cache
 war/assets/css/foundation/

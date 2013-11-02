@@ -1,8 +1,8 @@
 (function() {
 
   coursePlannerApp.controller("PlannerController",
-  [       "$scope", "ClassListService",
-  function($scope,   ClassListService) {
+  [       "$scope", "ClassListService", "$http", "$timeout", "UserService",
+  function($scope,   ClassListService,   $http,   $timeout,   UserService) {
 
     // Four years per whatever
     $scope.years = [ [], [], [], [] ];
@@ -14,8 +14,19 @@
       year.push([]);
     });
 
-    console.log($scope.years);
+    UserService.get(function(user) {
+      var coursesJson = JSON.parse(user.courseJsonString);
+      if(coursesJson)
+      {
+        $scope.years = coursesJson;
+      }
+    });
 
+    $scope.$watch('years', function(newYears) {
+      $http.post("/current_user", JSON.stringify({
+        courseJsonString: JSON.stringify(newYears)
+      }));
+    }, true);
 
     $scope.dropped = function(dragElem, dropElem) {
       var drag = angular.element(dragElem);
