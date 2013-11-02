@@ -25,10 +25,8 @@ public class CoursePlannerServlet extends HttpServlet {
             resp.setContentType("text/html");
             resp.getWriter().println("Hello, " + user.getNickname());
             resp.getWriter().println("<a href='" + userService.createLogoutURL("/") + "'>Log Out</a>");
-            resp.getWriter().println("Testing if data is pushing");
         } else {
             resp.sendRedirect(userService.createLoginURL(req.getRequestURI()));
-            resp.getWriter().println("Testing if data is not pushing");
         }
 
 	}

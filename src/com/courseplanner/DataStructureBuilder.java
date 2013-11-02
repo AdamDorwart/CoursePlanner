@@ -9,6 +9,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 public class DataStructureBuilder {
 	
@@ -121,5 +122,9 @@ public class DataStructureBuilder {
 		}
 		//System.out.println(courses.toString());
 		//output.close();
+	}
+	
+	public void push_to_datastore() {
+		
 	}
 }
