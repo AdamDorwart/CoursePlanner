@@ -26,12 +26,12 @@ public class CollegeDatastoreBuilder {
 		datastore.put(college);
 
 		Entity Muir = new Entity("College", college.getKey());
-		datastore.put(Muir);
 		
 		Muir.setProperty("name", "Muir");
 		Muir.setProperty("description", "Muir College encourages awareness of environmental "
 				   + "issues and involvement in environmental preservation and "
 				   + "sustainability.");
+		datastore.put(Muir);
 
 		for (int i = 0; i < muirGE.length; i++) {
 			Entity muirGEReq = new Entity("GEReqCourse",Muir.getKey());
@@ -47,6 +47,7 @@ public class CollegeDatastoreBuilder {
 		entities_to_write.add(muir_misc_GEReq);
 		
 		datastore.put(entities_to_write);
+		System.out.println("Muir works");
 
 	}
 	public void insertMarshallInfo () {
@@ -65,7 +66,6 @@ public class CollegeDatastoreBuilder {
 		datastore.put(college);
 
 		Entity marshall = new Entity("College", college.getKey());
-		datastore.put(marshall);
 		
 		marshall.setProperty("name", "Marshall");
 		Text marshallDesc = new Text("Thurgood Marshall College, formerly known as Third College, was founded in 1970 in a period "
@@ -75,6 +75,7 @@ public class CollegeDatastoreBuilder {
 				+ "known for his dedication to educational opportunity for all, civil rights, freedom of speech, womenÕs rights, and the "
 				+ "right to privacy.");
 		marshall.setProperty("description",marshallDesc);
+		datastore.put(marshall);
 
 		for (int i = 0; i < marshallGE.length; i++) {
 			Entity marshallGEReq = new Entity("GEReqCourse",marshall.getKey());
@@ -90,6 +91,7 @@ public class CollegeDatastoreBuilder {
 
 		entities_to_write.add(marshall_misc_GEReq);
 		datastore.put(entities_to_write);
+		System.out.println("Marshall works");
 
 	}
 	public void insertRevelleInfo () {
@@ -120,11 +122,11 @@ public class CollegeDatastoreBuilder {
 		datastore.put(college);
 
 		Entity revelle = new Entity("College", college.getKey());
-		datastore.put(revelle);
 		
 		revelle.setProperty("name", "Revelle");
 		Text revelleDesc = new Text("Revelle College, established in 1964, was the first college established at UCSD.  It was named in honor of UCSD's founder, Roger Revelle, a man the New York Times described as one of the world's most articulate spokesmen for science. A recipient of the President's Medal for Science, Revelle is best known for his seminal work on global warming.");
 		revelle.setProperty("description",revelleDesc);
+		datastore.put(revelle);
 
 		for (int i = 0; i < revelleGE.length; i++) {
 			Entity revelleGEReq = new Entity("GEReqCourse",revelle.getKey());
@@ -147,6 +149,7 @@ public class CollegeDatastoreBuilder {
 
 		entities_to_write.add(revelle_misc_GEReq);
 		datastore.put(entities_to_write);
+		System.out.println("Revelle works");
 
 	}
 	public void insertERCInfo () {
@@ -169,11 +172,11 @@ public class CollegeDatastoreBuilder {
 		datastore.put(college);
 
 		Entity ERC = new Entity("College", college.getKey());
-		datastore.put(ERC);
 		
 		ERC.setProperty("name", "ERC");
 		Text ERCDesc = new Text("Eleanor Roosevelt College (ERC) is one of the six colleges located on the campus at the University of California, San Diego. The college was named after former American First Lady Eleanor Roosevelt, who was a humanitarian as well as a champion of international cooperation and a major member of the early United Nations.");
 		ERC.setProperty("description",ERCDesc);
+		datastore.put(ERC);
 
 		for (int i = 0; i < ERCGE.length; i++) {
 			Entity ERCGEReq = new Entity("GEReqCourse",ERC.getKey());
@@ -193,6 +196,7 @@ public class CollegeDatastoreBuilder {
 
 		entities_to_write.add(ERC_misc_GEReq);
 		datastore.put(entities_to_write);
+		System.out.println("ERC works");
 
 	}
 
@@ -214,11 +218,12 @@ public class CollegeDatastoreBuilder {
 	datastore.put(college);
 
 	Entity warren = new Entity("College", college.getKey());
-	datastore.put(warren);
 	
-	warren.setProperty("name", "warren");
+	warren.setProperty("name", "Warren");
+
 	Text warrenDesc = new Text("Warren College's motto is Toward a Life in Balance, and we are dedicated to cultivating responsible citizen scholars who will flourish during their careers at UC San Diego and beyond. The College strives to inculcate in each student an understanding of the important contributions an individual can make in society. This mission is supported by a number of critical components. Our core freshman sequence comprises Warren Writing and Ethics and Society . Our General Education requirements ensure that students will receive both breadth and depth in areas of study that complement the chosen major. Our co-curricular activities promote the development of the 'whole student.' Warren offers both resident and commuter students from all academic disciplines a wide array of engaging social, athletic, and cultural events and programs that will aid them in achieving that all-important balance.");
 	warren.setProperty("description",warrenDesc);
+	datastore.put(warren);
 
 	for (int i = 0; i < warrenGE.length; i++) {
 		Entity warrenGEReq = new Entity("GEReqCourse",warren.getKey());
@@ -236,6 +241,7 @@ public class CollegeDatastoreBuilder {
 
 	entities_to_write.add(warren_misc_GEReq);
 	datastore.put(entities_to_write);
+	System.out.println("Warren works");
 
 	}
 
@@ -255,11 +261,11 @@ public class CollegeDatastoreBuilder {
 	datastore.put(college);
 
 	Entity sixth = new Entity("College", college.getKey());
-	datastore.put(sixth);
 	
-	sixth.setProperty("name", "sixth");
-	Text sixthDesc = new Text("");
+	sixth.setProperty("name", "Sixth");
+	Text sixthDesc = new Text("Inaugurated at the dawn of a new century, Sixth College prepares our students to become dynamic and engaged citizens of the 21st centuryÑinnovative, creative and interconnected. Our core academic programs develop skills in both traditional and emergent media literacy, emphasizing essential writing fundamentals as well as the latest forms of digital communication.");
 	sixth.setProperty("description",sixthDesc);
+	datastore.put(sixth);
 
 	for (int i = 0; i < sixthGE.length; i++) {
 		Entity sixthGEReq = new Entity("GEReqCourse",sixth.getKey());
