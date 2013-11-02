@@ -1,7 +1,7 @@
 (function() {
   coursePlannerApp.controller("ClassIndexController",
-  [       "$scope", "$filter", "ClassListService",
-  function($scope,   $filter,   ClassListService) {
+  [       "$scope", "$filter", "ClassListService", "DetailsPaneService",
+  function($scope,   $filter,   ClassListService,   DetailsPaneService) {
 
     $scope.typeCodeToName = {
       "ME": "Major Requirement",
@@ -66,6 +66,16 @@
       };
 
     }
+
+    $scope.showDetails = function(course) {
+      console.log("Setting detail: ", course);
+
+      DetailsPaneService.setDetailFromCourse(course);
+    };
+
+    $scope.clearDetails = function() {
+      DetailsPaneService.clear();
+    };
 
   }]);
 })();

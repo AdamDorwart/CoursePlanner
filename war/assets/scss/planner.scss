@@ -85,3 +85,16 @@
     padding: .25em;
   }
 }
+
+.details-pane {
+  padding: 1em;
+
+  .head {
+    font-weight: bold;
+  }
+
+  .subhead {
+    font-style: italic;
+    color: gray;
+  }
+}

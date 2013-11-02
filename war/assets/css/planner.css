@@ -73,3 +73,11 @@ meta.foundation-mq-large {
     height: 1.2em; }
   .planner .class-item {
     padding: .25em; }
+
+.details-pane {
+  padding: 1em; }
+  .details-pane .head {
+    font-weight: bold; }
+  .details-pane .subhead {
+    font-style: italic;
+    color: gray; }

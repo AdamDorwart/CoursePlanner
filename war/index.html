@@ -68,7 +68,10 @@
           </form>
         </div>
 
-        <ul class="class-list">
+        <ul
+          class="class-list"
+          ng-mouseout="clearDetails()"
+          >
           <li
             dk-toggle-click="showGeClasses"
             ng-class="{collapsed: !showGeClasses}"
@@ -79,7 +82,7 @@
             class="class-item"
             x-lvl-draggable="true"
             data-course-id="{{class.course_id}}"
-            ng-click="showDetails(course)"
+            ng-mouseover="showDetails(class)"
             ng-show="showGeClasses">
             <span class="class-id">{{ class.course_id }}</span>
             <span class="class-name" ng-attr-title="{{class.name}}">{{ class.name }}</span>
@@ -96,7 +99,7 @@
             class="class-item"
             x-lvl-draggable="true"
             data-course-id="{{class.course_id}}"
-            ng-click="showDetails(course)"
+            ng-mouseover="showDetails(class)"
             ng-show="showMrClasses">
             <span class="class-id">{{ class.course_id }}</span>
             <span class="class-name" ng-attr-title="{{class.name}}">{{ class.name }}</span>
@@ -111,7 +114,7 @@
             class="class-item"
             x-lvl-draggable="true"
             data-course-id="{{class.course_id}}"
-            ng-click="showDetails(course)"
+            ng-mouseover="showDetails(class)"
             ng-show="showMeClasses">
             <span class="class-id">{{ class.course_id }}</span>
             <span class="class-name" ng-attr-title="{{class.name}}">{{ class.name }}</span>
@@ -176,7 +179,8 @@
 
         <div
           class="row details-pane"
-          ng-controller="DetailsPaneController">
+          ng-controller="DetailsPaneController"
+          ng-show="course">
 
           <div class="head">{{ course.course_id }}</div>
           <div class="subhead">{{ course.name }}</div>
@@ -184,7 +188,7 @@
 
           <div class="prereqs">Pre/Coreqs: {{ course.prereq }}</div>
           <hr>
-          <div class="details">Course Description <i>{{ course.details }}</i></div>
+          <div class="details">Course Description <i>{{ course.description }}</i></div>
 
         </div>
 
