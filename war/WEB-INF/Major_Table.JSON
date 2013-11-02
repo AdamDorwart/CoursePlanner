@@ -1,35 +1,32 @@
-CoursePlanner
-=============
-
-Simplified course planning for everyone
 [
-"Name": "Biochemistry and Cell Biology",
-"Description": "This major is designed to provide students with the fundamental courses required for entry into a school of medicine or into post graduate training in a wide variety of areas of biological and biomedical sciences: biochemistry, biophysics, genetics, molecular biology, cell biology, developmental biology, microbiology, virology, human biology (physiology, metabolism, genetic disorders), cancer biology, pharmacology, and others. The emphasis is on basic principles that help us understand those processes unique to living organisms at the molecular level.
-
-The program includes two required upper-division biology laboratory courses to provide practical experience with modern techniques and useful technology for those seeking positions as lab technicians in clinical and basic research laboratories. The opportunity to select four elective courses allows students either to seek a still broader background in a variety of biology courses or to begin specialization in a chosen field of study.",
-"ReqCourse": ["BILD 1", "BILD 3", "MATH10A OR MATH20A", "MATH10B OR MATH20B", "MATH 11 AND MATH11L OR MATH20C","CHEM6A","CHEM6B","CHEM6C","CHEM7L","PHYS1A AND PHYS1AL, PHYS1C AND PHYS1CL OR
-	PHYS2A,PHYS2B,PHYS2C,PHYS2BL OR PHYS2CL OR PHYS2DL","CHEM140A","CHEM140B",CHEM143A OR CHEM105A","BIBC100","BIBC103","BICD100","BICD110","BIMM100","BIBC120", "BICD130","BICD134","BICD140","BIMM110","BIMM114","BIMM116","BIMM118",
-	"BIMM120","BIMM124","BIMM130","BIPN140","BIPN142","BIPN148","BIPN150","BICD101 OR BICD111 OR BICD123 OR BICD131 OR BICD145 OR BIMM101 OR BIMM121 OR BIPN105 OR BIPN145 OR CHEM143C"],
-"Elective": ["Elective1","Elective2","Elective3","Elective4"],
-"MiscElective":["To receive a bachelor of science in biology from UC San Diego, all students must complete at least nine upper-division biology courses (each course must be at least four units) in the Division of Biological Sciences while officially enrolled at UC San Diego. (Students participating in the Education Abroad Program (EAP), and courses at other UC campuses, may petition up to three of these courses to count toward their residency minima.) Biology courses completed through the UC Extension program (concurrent enrollment) will not be counted toward this residency requirement."]
-],
-
-[
-"Name": "Biology with a Specialization in Bioinformatics",
-"Description": "This program offers a rigorous, interdisciplinary training in the new and rapidly-evolving field of bioinformatics within the Division of Biological Sciences. Bioinformatics refers to advanced computational and experimental methods that model the flow of information (genetic, metabolic and regulatory) in living systems to provide an integrated understanding of the systems properties of model organisms. Given that this is a new and rapidly evolving field, and the fact that large volumes of both qualitative and quantitative biological data will accrue at an increasing pace in the next decade, the bioinformatician of the future must have a substantial mastery in the sciences and in engineering. The program offered by the Division of Biological Sciences is aimed at a student interested in applying, and to some extent developing, tools of bioinformatics for the study of biological systems.
-
-Students in the bioinformatics major are required to take courses in departments outside of the Division of Biological Sciences. As a result, we recommend students contact each respective department to inquire about prerequisite enforcement.",
-"ReqCourse": ["BILD1","BILD1","BILD94","],
-"Elective": ["elective21","elective22", "elective23"],
-"MiscElective":["miscElective21","miscElective22","miscElective23"]
-],
-
-[
-"Name": "Computer Science3",
-"Code": "CSE3",
-"Description": "CS is cool3",
-"ReqCourse": ["reqCourse31", "reqCourse32", "reqCourse33"],
-"Elective": ["elective31","elective32", "elective33"],
-"MiscElective":["miscElective31","miscElective32","miscElective33"]
+	{
+	"Name": "Biochemistry and Cell Biology",
+	"Description": "This major is designed to provide students with the fundamental courses required for entry into a school of medicine or into post graduate training in a wide variety of areas of biological and biomedical sciences: biochemistry, biophysics, genetics, molecular biology, cell biology, developmental biology, microbiology, virology, human biology (physiology, metabolism, genetic disorders), cancer biology, pharmacology, and others. The emphasis is on basic principles that help us understand those processes unique to living organisms at the molecular level.
+	
+	The program includes two required upper-division biology laboratory courses to provide practical experience with modern techniques and useful technology for those seeking positions as lab technicians in clinical and basic research laboratories. The opportunity to select four elective courses allows students either to seek a still broader background in a variety of biology courses or to begin specialization in a chosen field of study.",
+	"ReqCourse": ["BILD 1", "BILD 3", "MATH10A OR MATH20A", "MATH10B OR MATH20B", "MATH 11 AND MATH11L OR MATH20C","CHEM6A","CHEM6B","CHEM6C","CHEM7L","PHYS1A AND PHYS1AL, PHYS1C AND PHYS1CL OR
+		PHYS2A,PHYS2B,PHYS2C,PHYS2BL OR PHYS2CL OR PHYS2DL","CHEM140A","CHEM140B",CHEM143A OR CHEM105A","BIBC100","BIBC103","BICD100","BICD110","BIMM100","BIBC120", "BICD130","BICD134","BICD140","BIMM110","BIMM114","BIMM116","BIMM118",
+		"BIMM120","BIMM124","BIMM130","BIPN140","BIPN142","BIPN148","BIPN150","BICD101 OR BICD111 OR BICD123 OR BICD131 OR BICD145 OR BIMM101 OR BIMM121 OR BIPN105 OR BIPN145 OR CHEM143C"],
+	"Elective": ["Elective1","Elective2","Elective3","Elective4"],
+	"MiscElective":["To receive a bachelor of science in biology from UC San Diego, all students must complete at least nine upper-division biology courses (each course must be at least four units) in the Division of Biological Sciences while officially enrolled at UC San Diego. (Students participating in the Education Abroad Program (EAP), and courses at other UC campuses, may petition up to three of these courses to count toward their residency minima.) Biology courses completed through the UC Extension program (concurrent enrollment) will not be counted toward this residency requirement."]
+	},
+	
+	{
+	"Name": "Biology with a Specialization in Bioinformatics",
+	"Description": "This program offers a rigorous, interdisciplinary training in the new and rapidly-evolving field of bioinformatics within the Division of Biological Sciences. Bioinformatics refers to advanced computational and experimental methods that model the flow of information (genetic, metabolic and regulatory) in living systems to provide an integrated understanding of the systems properties of model organisms. Given that this is a new and rapidly evolving field, and the fact that large volumes of both qualitative and quantitative biological data will accrue at an increasing pace in the next decade, the bioinformatician of the future must have a substantial mastery in the sciences and in engineering. The program offered by the Division of Biological Sciences is aimed at a student interested in applying, and to some extent developing, tools of bioinformatics for the study of biological systems.
+	
+	Students in the bioinformatics major are required to take courses in departments outside of the Division of Biological Sciences. As a result, we recommend students contact each respective department to inquire about prerequisite enforcement.",
+	"ReqCourse": ["BILD1","BILD1","BILD94","],
+	"Elective": ["elective21","elective22", "elective23"],
+	"MiscElective":["miscElective21","miscElective22","miscElective23"]
+	},
+	
+	{
+	"Name": "Computer Science3",
+	"Code": "CSE3",
+	"Description": "CS is cool3",
+	"ReqCourse": ["reqCourse31", "reqCourse32", "reqCourse33"],
+	"Elective": ["elective31","elective32", "elective33"],
+	"MiscElective":["miscElective31","miscElective32","miscElective33"]
+	}
 ]
-
