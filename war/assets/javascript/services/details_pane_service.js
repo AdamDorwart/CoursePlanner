@@ -25,10 +25,8 @@
       $http.get("/course_detail?course_id="+course_id)
       .success(function(data) {
         detailsCache[course_id] = data;
+        console.log(data);
         cb(data);
-      })
-      .error(function(data) {
-        console.log("Error while reading course from server: ", data);
       });
     };
 
