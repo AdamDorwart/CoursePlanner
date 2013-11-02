@@ -5,7 +5,8 @@
   function($scope,   DetailsPaneService) {
 
     DetailsPaneService.onDetailsChange(function(course) {
-      $scope.course = course;
+      console.log("SET DETAIL TO: ", DetailsPaneService.getCurrentDetail());
+      $scope.detail = DetailsPaneService.getCurrentDetail();
     });
 
   }]);

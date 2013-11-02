@@ -187,7 +187,7 @@
       if(!quarter) { return total; }
 
       quarter.forEach(function(course) {
-        total += parseInt(course.units);
+        total += parseInt(course.units) || 0;
       });
 
       return total;

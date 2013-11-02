@@ -187,15 +187,15 @@
         <div
           class="row details-pane"
           ng-controller="DetailsPaneController"
-          ng-show="course">
+          ng-show="detail">
 
-          <div class="head">{{ course.course_id }} <small><i>({{ course.units }} units)</i></small></div>
-          <div class="subhead">{{ course.name }}</div>
+          <div class="head">{{ detail.course_id }} <small><i>({{ detail.units }} units)</i></small></div>
+          <div class="subhead">{{ detail.name }}</div>
           <hr>
 
-          <div class="prereqs">Pre/Coreqs: {{ course.prereq }}</div>
+          <div class="prereqs">Pre/Coreqs: {{ detail.prereq }}</div>
           <hr>
-          <div class="details">Course Description <i>{{ course.description }}</i></div>
+          <div class="details">Course Description <i>{{ detail.description }}</i></div>
 
         </div>
 
