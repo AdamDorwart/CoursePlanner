@@ -13,8 +13,9 @@ import com.google.appengine.api.users.UserServiceFactory;
 public class CoursePlannerServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-        CollegeInfo test = new CollegeInfo();
-        test.insertCollegeInfo();
+		CollegeDatastoreBuilder test = new CollegeDatastoreBuilder();
+        test.insertMuirInfo();
+        test.insertMarshallInfo();
         DataStructureBuilder dsb = new DataStructureBuilder();
         
 		UserService userService = UserServiceFactory.getUserService();
