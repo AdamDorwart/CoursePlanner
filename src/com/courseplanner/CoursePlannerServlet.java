@@ -13,16 +13,13 @@ import com.google.appengine.api.users.UserServiceFactory;
 public class CoursePlannerServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-
-		System.out.println("Before User");
-		
-		UserService userService = UserServiceFactory.getUserService();
-        User user = userService.getCurrentUser();
-
-		System.out.println("After User");
-		
         CollegeInfo test = new CollegeInfo();
         test.insertCollegeInfo();
+        DataStructureBuilder dsb = new DataStructureBuilder();
+        
+		UserService userService = UserServiceFactory.getUserService();
+        User user = userService.getCurrentUser();
+		
 
         if (user != null) {
             resp.setContentType("text/html");
@@ -31,6 +28,7 @@ public class CoursePlannerServlet extends HttpServlet {
             resp.getWriter().println("Testing if data is pushing");
         } else {
             resp.sendRedirect(userService.createLoginURL(req.getRequestURI()));
+            resp.getWriter().println("Testing if data is not pushing");
         }
 
 	}
