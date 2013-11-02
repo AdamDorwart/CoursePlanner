@@ -4,7 +4,26 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<<<<<<< HEAD
 
+=======
+	<servlet>
+		<servlet-name>CoursePlanner</servlet-name>
+		<servlet-class>com.courseplanner.CoursePlannerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CoursePlanner</servlet-name>
+		<url-pattern>/courseplanner</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>CourseDatastore</servlet-name>
+		<servlet-class>com.courseplanner.CourseDatastoreServletBuilder</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>CourseDatastore</servlet-name>
+		<url-pattern>/coursedatastore</url-pattern>
+	</servlet-mapping>
+>>>>>>> 50dd81430082f02f6a43d262c8de30a22b658463
 	
 	<servlet>
 	    <servlet-name>CurrentUser</servlet-name>

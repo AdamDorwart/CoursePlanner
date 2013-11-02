@@ -11,8 +11,7 @@ public class helperFunctions {
 		String json = gson.toJson(a);
 
 		if (json == null)
-			System.out
-					.println("There was an error converting the entity to Json");
+			System.out.println("There was an error converting the entity to Json");
 
 		return json;
 	}
@@ -23,8 +22,7 @@ public class helperFunctions {
 		Entity entity = gson.fromJson(a, b.getClass());
 
 		if (entity == null)
-			System.out
-					.println("There was an error converting the entity to Json");
+			System.out.println("There was an error converting the entity to Json");
 
 		return entity;
 	}

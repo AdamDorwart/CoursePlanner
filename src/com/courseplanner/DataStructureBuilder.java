@@ -7,8 +7,6 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.ArrayList;
 
@@ -17,17 +15,10 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 
 public class DataStructureBuilder {
-	Map<String, Course> courses = new HashMap<String, Course>();// c1: courseID;
-																// c2: ID, Name,
-																// Description,
-																// Units,
-																// Prerequisites,
-																// Corequisites;
 
 	public DataStructureBuilder() {
 		// datastore instantiation
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		ArrayList<Entity> entities_to_write = new ArrayList<Entity>();
 
 		Entity courseTable = new Entity("CourseTable");
@@ -56,43 +47,48 @@ public class DataStructureBuilder {
 				"WCWP", "WES" };
 		URL url;
 		String line = null;
-		String id = null;
 
 		for (int i = 0; i < major_codes.length; i++) {
 			try {
-				url = new URL("http://www.ucsd.edu/catalog/courses/"
-						+ major_codes[i] + ".html");
+				url = new URL("http://www.ucsd.edu/catalog/courses/"+ major_codes[i] + ".html");
 				URLConnection con = url.openConnection();
 				InputStream is = con.getInputStream();
 				System.out.println("Testing URL: " + url);
 
-				BufferedReader br = new BufferedReader(
-						new InputStreamReader(is));
+				BufferedReader br = new BufferedReader(new InputStreamReader(is));
 				StringBuilder stringBuilder = new StringBuilder();
 
+				String id;
+				String name;
+				String units;
+				String description;
+				String prerequisites;
+				boolean flip = false;
+				Entity course = new Entity("Course", courseTable.getKey());
+				
 				while ((line = br.readLine()) != null) {
-					Entity course = new Entity("Course", courseTable.getKey());
+					
 					// parse course ID
 					if (line.contains("<p class=\"course-name\">")) {
 						try {
-							String title = line.substring(
-									line.indexOf("course-name\">") + 13,
-									line.indexOf("</p>"));
+							String title = line.substring(line.indexOf("course-name\">") + 13,line.indexOf("</p>"));
 							stringBuilder.append("\nTitle: " + title + "\n");
 
 							// set strings
 							id = title.substring(0, title.indexOf("."));
 							id = major_codes[i] + " " + id;
 
-							String name = title
-									.substring(title.indexOf(".") + 1,
-											title.indexOf(" ("));
-							String units = title.substring(
-									title.indexOf("(") + 1, title.indexOf(")"));
+							name = title.substring(title.indexOf(".") + 1,title.indexOf(" ("));
+							units = title.substring(title.indexOf("(") + 1, title.indexOf(")"));
 
+							System.out.println("ID: "+id);
+							System.out.println("Name: "+name);
+							System.out.println("Units: "+units);
+							
 							course.setProperty("ID", id);
 							course.setProperty("Name", name);
 							course.setProperty("Units", units);
+							flip = false;
 
 						} catch (Exception e) {
 						}
@@ -101,33 +97,32 @@ public class DataStructureBuilder {
 					if (line.contains("<p class=\"course-descriptions\">")) {
 						try {
 							// set strings
-							String description = line
-									.substring(line.indexOf(">") + 1,
-											line.indexOf("</p>"));
+							description = line.substring(line.indexOf(">") + 1,line.indexOf("</p>"));
 							if (description.contains("<strong class=")) {
-								String prerequisites = description
-										.substring(description
-												.indexOf("</strong>") + 9);
+								prerequisites = description.substring(description.indexOf("</strong>") + 9);
+								System.out.println("Prereq: "+prerequisites);
 								course.setProperty("Prereq", prerequisites);
-								description = description.substring(0,
-										description.indexOf("<strong class="));
-								stringBuilder.append("Prerequisites: "
-										+ courses.get(id + "_prerequisites")
-										+ "\n");
+								description = description.substring(0,description.indexOf("<strong class="));
 							} else {
-								course.setProperty("Prereq",
-										"Prerequisites: None");
+								System.out.println("Prereg: None");
+								course.setProperty("Prereq","Prerequisites: None");
 							}
+							System.out.println("Description: "+description);
 							course.setProperty("Description", description);
+							flip = true;
 						} catch (Exception e) {
 						}
+					}
+					if (flip) {
 						entities_to_write.add(course);
+						course = new Entity("Course", courseTable.getKey());
 					}
 				}
 			} catch (MalformedURLException e) {
 			} catch (IOException e) {
 			}
 		}
+		System.out.println(entities_to_write.toString());
 		datastore.put(entities_to_write);
 	}
 }

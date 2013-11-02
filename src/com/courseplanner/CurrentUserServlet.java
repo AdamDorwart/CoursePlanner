@@ -27,59 +27,46 @@ import com.google.gson.JsonObject;
 @SuppressWarnings("serial")
 public class CurrentUserServlet extends HttpServlet {
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
 		Gson gson = new Gson();
 		resp.setContentType("application/json");
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 		JsonElement respJson;
 
 		if (user == null) {
 			respJson = new JsonObject();
-			respJson.getAsJsonObject().addProperty("loginUrl",
-					userService.createLoginURL("/"));
+			respJson.getAsJsonObject().addProperty("loginUrl",userService.createLoginURL("/"));
 		} else {
 			Key userKey = KeyFactory.createKey("UserTable", user.getUserId());
 
-			Query query = new Query("UserData").addFilter("user",
-					Query.FilterOperator.EQUAL, user).setAncestor(userKey);
+			Query query = new Query("UserData").addFilter("user",Query.FilterOperator.EQUAL, user).setAncestor(userKey);
 
 			PreparedQuery userQuery = datastore.prepare(query);
 			Entity userDataEntity = userQuery.asSingleEntity();
 			respJson = gson.toJsonTree(user);
 
 			if (userDataEntity != null) {
-				String courseJsonString = (String) userDataEntity
-						.getProperty("courseJsonString");
-				respJson.getAsJsonObject().addProperty("courseJsonString",
-						courseJsonString);
+				String courseJsonString = (String) userDataEntity.getProperty("courseJsonString");
+				respJson.getAsJsonObject().addProperty("courseJsonString",courseJsonString);
 			}
-			respJson.getAsJsonObject()
-					.addProperty(
-							"logoutUrl",
-							userService.createLogoutURL(userService
-									.createLoginURL("/")));
+			respJson.getAsJsonObject().addProperty("logoutUrl",userService.createLogoutURL(userService.createLoginURL("/")));
 		}
 
 		resp.getWriter().print(gson.toJson(respJson));
 	}
 
 	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		Gson gson = new Gson();
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
 		resp.setContentType("application/json");
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
-		Filter equalsUserFilter = new FilterPredicate("user",
-				FilterOperator.EQUAL, user);
+		Filter equalsUserFilter = new FilterPredicate("user",FilterOperator.EQUAL, user);
 
 		Key userKey = KeyFactory.createKey("UserTable", user.getUserId());
 		Query query = new Query("UserData").setFilter(equalsUserFilter).setAncestor(userKey);
@@ -103,8 +90,7 @@ public class CurrentUserServlet extends HttpServlet {
 		}
 
 		JsonElement jelem = gson.fromJson(jb.toString(), JsonElement.class);
-		String courseJsonString = jelem.getAsJsonObject()
-				.get("courseJsonString").getAsString();
+		String courseJsonString = jelem.getAsJsonObject().get("courseJsonString").getAsString();
 
 		userDataEntity.setProperty("courseJsonString", courseJsonString);
 		datastore.put(userDataEntity);
