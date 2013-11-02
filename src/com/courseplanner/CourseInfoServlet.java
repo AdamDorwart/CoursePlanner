@@ -11,6 +11,7 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -23,7 +24,7 @@ public class CourseInfoServlet extends HttpServlet {
 		Gson gson = new Gson();
 		resp.setContentType("application/json");
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-
+		
 		JsonArray courseInfo = new JsonArray();
 		
 		Query q = new Query("Course");
@@ -47,5 +48,7 @@ public class CourseInfoServlet extends HttpServlet {
 			  
 			}
 		resp.getWriter().print(gson.toJson(courseInfo));
+		
+		
 	}
 }

@@ -11,12 +11,16 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.Filter;
+import com.google.appengine.api.datastore.Query.FilterOperator;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class CourseDetailServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = 4474482550713758708L;
+
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 	throws IOException
@@ -25,28 +29,26 @@ public class CourseDetailServlet extends HttpServlet {
 		resp.setContentType("application/json");
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
-		JsonArray courseInfo = new JsonArray();
+		Filter courseIDMatch = new FilterPredicate( "ID", FilterOperator.EQUAL, req.getParameter( "course_id"));
 		
-		Query q = new Query("Course");
+		Query q = new Query("Course").setFilter( courseIDMatch);
 		PreparedQuery pq = datastore.prepare(q);
-		for (Entity result : pq.asIterable()) {
-			JsonObject newJsonObj = new JsonObject();
-			try {
-			  newJsonObj.addProperty("course_id", (String)result.getProperty("ID") );
-			  newJsonObj.addProperty("name", (String)result.getProperty("Name") );
-			  newJsonObj.addProperty("description", (String)result.getProperty("Description") );
-			  newJsonObj.addProperty("prereq", (String)result.getProperty("Prereq") );
-			  newJsonObj.addProperty("units", (String)result.getProperty("Units") );
-			  newJsonObj.addProperty("type", "GE");
-		  
-			  courseInfo.add(newJsonObj);
-			}
-			catch (Exception e) {
-				System.out.println( e.toString());
-			}
+		Entity result = pq.asSingleEntity();
+		
+		JsonObject courseInfo = new JsonObject();
+		try {
+			courseInfo.addProperty("course_id", (String)result.getProperty("ID") );
+			courseInfo.addProperty("name", (String)result.getProperty("Name") );
+			courseInfo.addProperty("description", (String)result.getProperty("Description") );
+			courseInfo.addProperty("prereq", (String)result.getProperty("Prereq") );
+			courseInfo.addProperty("units", (String)result.getProperty("Units") );
+			courseInfo.addProperty("type", "GE");
 
-			  
-			}
+		}
+		catch (Exception e) {
+			System.out.println( e.toString());
+		}
+		
 		resp.getWriter().print(gson.toJson(courseInfo));
 	}
 }
