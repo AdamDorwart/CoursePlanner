@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.Filter;
@@ -41,8 +43,10 @@ public class CurrentUserServlet extends HttpServlet {
 			respJson.getAsJsonObject().addProperty("loginUrl",
 					userService.createLoginURL("/"));
 		} else {
+			Key userKey = KeyFactory.createKey("UserTable", user.getUserId());
+
 			Query query = new Query("UserData").addFilter("user",
-					Query.FilterOperator.EQUAL, user);
+					Query.FilterOperator.EQUAL, user).setAncestor(userKey);
 
 			PreparedQuery userQuery = datastore.prepare(query);
 			Entity userDataEntity = userQuery.asSingleEntity();
@@ -76,13 +80,15 @@ public class CurrentUserServlet extends HttpServlet {
 
 		Filter equalsUserFilter = new FilterPredicate("user",
 				FilterOperator.EQUAL, user);
-		Query query = new Query("UserData").setFilter(equalsUserFilter);
+
+		Key userKey = KeyFactory.createKey("UserTable", user.getUserId());
+		Query query = new Query("UserData").setFilter(equalsUserFilter).setAncestor(userKey);
 
 		PreparedQuery userQuery = datastore.prepare(query);
 		Entity userDataEntity = userQuery.asSingleEntity();
 
 		if (userDataEntity == null) {
-			userDataEntity = new Entity("UserData");
+			userDataEntity = new Entity("UserData", userKey);
 			userDataEntity.setProperty("user", user);
 		}
 

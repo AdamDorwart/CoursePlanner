@@ -5,5 +5,7 @@
 
 appengine-generated
 
+*.class
+
 .sass-cache
 war/assets/css/foundation/
