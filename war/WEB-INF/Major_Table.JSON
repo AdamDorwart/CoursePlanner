@@ -1,0 +1,178 @@
+[
+	{
+	"Name": "Biochemistry and Cell Biology B.S.",
+	"Description": "This major is designed to provide students with the fundamental courses required for entry into a school of medicine or into post graduate training in a wide variety of areas of biological and biomedical sciences: biochemistry, biophysics, genetics, molecular biology, cell biology, developmental biology, microbiology, virology, human biology (physiology, metabolism, genetic disorders), cancer biology, pharmacology, and others. The emphasis is on basic principles that help us understand those processes unique to living organisms at the molecular level.
+	
+	The program includes two required upper-division biology laboratory courses to provide practical experience with modern techniques and useful technology for those seeking positions as lab technicians in clinical and basic research laboratories. The opportunity to select four elective courses allows students either to seek a still broader background in a variety of biology courses or to begin specialization in a chosen field of study.",
+	"ReqCourse": ["BILD 1", "BILD 3", "MATH10A OR MATH20A", "MATH10B OR MATH20B", "MATH 11 AND MATH11L OR MATH20C","CHEM6A","CHEM6B","CHEM6C","CHEM7L","PHYS1A AND PHYS1AL, PHYS1C AND PHYS1CL OR
+		PHYS2A,PHYS2B,PHYS2C,PHYS2BL OR PHYS2CL OR PHYS2DL","CHEM140A","CHEM140B","CHEM143A OR CHEM105A","BIBC100","BIBC103","BICD100","BICD110","BIMM100","BIBC120", "BICD130","BICD134","BICD140","BIMM110","BIMM114","BIMM116","BIMM118",
+		"BIMM120","BIMM124","BIMM130","BIPN140","BIPN142","BIPN148","BIPN150","BICD101 OR BICD111 OR BICD123 OR BICD131 OR BICD145 OR BIMM101 OR BIMM121 OR BIPN105 OR BIPN145 OR CHEM143C"],
+	"Elective": ["BENG","BNFO","BIEB","BICD","BIPN","BIBC","BGGN","BGRD","BGSE","BILD","BIMM","BISP","BIOM"],
+	"MiscElective": ["To receive a bachelor of science in biology from UC San Diego, all students must complete at least nine upper-division biology courses (each course must be at least four units) in the Division of Biological Sciences while officially enrolled at UC San Diego. (Students participating in the Education Abroad Program (EAP), and courses at other UC campuses, may petition up to three of these courses to count toward their residency minima.) Biology courses completed through the UC Extension program (concurrent enrollment) will not be counted toward this residency requirement."],
+	},
+	
+	{
+	"Name": "Biology B.S. with a Specialization in Bioinformatics",
+	"Description": "This program offers a rigorous, interdisciplinary training in the new and rapidly-evolving field of bioinformatics within the Division of Biological Sciences. Bioinformatics refers to advanced computational and experimental methods that model the flow of information (genetic, metabolic and regulatory) in living systems to provide an integrated understanding of the systems properties of model organisms. Given that this is a new and rapidly evolving field, and the fact that large volumes of both qualitative and quantitative biological data will accrue at an increasing pace in the next decade, the bioinformatician of the future must have a substantial mastery in the sciences and in engineering. The program offered by the Division of Biological Sciences is aimed at a student interested in applying, and to some extent developing, tools of bioinformatics for the study of biological systems.
+	
+	Students in the bioinformatics major are required to take courses in departments outside of the Division of Biological Sciences. As a result, we recommend students contact each respective department to inquire about prerequisite enforcement.",
+	"ReqCourse": ["BILD1","BILD1","BILD94","CHEM6A","CHEM6B","CHEM6C","CHEM7L","CSE8A AND CSE8AL AND CSE8B OR CSE11","CSE12","CSE21","MATH20A","MATH20B","MATH20C","MATH20F","PHYS2A","PHYS2B","PHYS2C","CHEM140A","CHEM140B","CSE100",
+	"CSE101","BIBC102","BIBC203","CHEM127","BICD100","BICD110","BIMM100 OR CHEM 114D","BIMM101","BIMM181","BIMM182","BENG183","BIMM184","BIMM185","MATH186"]
+	"Elective": ["BENG","BNFO","BIEB","BICD","BIPN","BIBC","BGGN","BGRD","BGSE","BILD","BIMM","BISP","BIOM"],
+	"MiscElective":["To receive a bachelor of science degree in biology from UC San Diego, all students must complete at least nine upper-division biology courses (each course must be at least four units) in the Division of Biological Sciences while officially enrolled at UC San Diego. (Students participating in the Education Abroad Program (EAP), and courses at other UC campuses, may petition up to three of these courses to count toward their residency minima.) Biology courses completed through the UC Extension program (concurrent enrollment) will not be counted toward this residency requirement."],
+	},
+	
+	{
+	"Name": "Ecology, Behavior and Evolution B.S.",
+	"Description": "This major includes the fields of population biology, ecology, conservation biology, animal behavior, population genetics, biogeography, and evolution. These fields have in common a focus on evolutionary processes and whole organisms in relation to each other and to their environments. Research careers in ecology, behavior, and evolution can be found in universities, government agencies, and the biotechnology industry. More applied careers for ecologists are equally varied: recent graduates now work in forestry and wildlife management, as ecological consultants for U.S. and foreign governments and private industry, as teachers, or in new fields such as ecological medicine and epidemiology, environmental design and planning, and conservation biology. Because organismal biology spans such a wide variety of topics, this major has been designed to provide the basic fundamentals while allowing maximum flexibility within the general topic areas.",
+	"ReqCourse": ["BILD1","BILD2","BILD3","MATH10A,MATH10B,MATH11 AND MATH11L OR MATH20A,MATH20B,MATH11 AND MATH11L OR MATH20D","CHEM6A","CHEM6B","CHEM6C","BICD100","BIEB100","BIEB102","BIEB150"],
+	"Elective": ["elective31","elective32", "elective33"],
+	"MiscElective": ["miscElective31","miscElective32","miscElective33"],
+	},
+
+	{
+	"Name": "General Biology B.S.",
+	"Description": "This program allows the most diversified exposure to biology of any of the majors offered by the Division of Biological Sciences. It is designed for students with broad interests who do not wish to be constrained by the specialized requirements of the other majors and who desire maximum freedom to pursue their particular educational goals.",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Human Biology B.S.",
+	"Description": "This major is designed to provide students with the fundamental courses required for entry into: schools of medicine, veterinary medicine, dentistry, and pharmacy; Ph.D. programs in the biomedical sciences; and biotech research, teaching, medical technology, patent law, physical therapy, nutrition, and nursing. The core classes required of all human biology majors provide the student with the basic principles that help us understand normal human physiology and the molecular basis of human disease. The course options in human physiology, human disease, and biomedical-related laboratories provide the students with educational breadth while still allowing them considerable flexibility in tailoring their course of study to suit their educational goals.",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Microbiology B.S.",
+	"Description": "The microbiology major is designed to prepare students for graduate studies and for professional careers in a variety of health-related programs. The specialization in microbiology can provide the basic background for work in medical technology, or for further training in public health or other health-related specialties. The program is also designed to provide a foundation for graduate studies in microbiology, virology, and a variety of allied fields as well as for medical and dental school.",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Physiology and Neuroscience B.S.",
+	"Description": "This major provides a program for studying the bodily and neural functions of complex organisms. Students may concentrate upon a more specialized area of study, such as neurobiology, animal physiology, or endocrinology.
+
+This major is designed to provide students with the fundemental courses required for entry into medical school, graduate school in biological or neural sciences, or entry into other health related professions such as nursing, dentistry, veterinary medicine, pharmacy, physical therapy, physical education, agriculture and wildlife management.",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Molecular Biology B.S.",
+	"Description": "The program for molecular biology is designed to provide an intensive exposure to the theoretical concepts and experimental techniques of molecular biology. The concepts and techniques of molecular biology are the foundation for the studies of all aspects of biology in modern time. A focus on molecular biology, therefore, provides an excellent preparation for a wide range of advanced studies including basic research, medicine, bioengineering, and biotechnology. Considerable emphasis is placed on chemistry, biochemistry, and genetics for students enrolled in the program. As such, it is recommended for those students who have a particularly strong interest in this field of study.",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Economics B.A.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Management Science Major B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Joint Mathematics-Economics B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Computer Science B.A.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Computer Science B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Computer Engineering B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Computer Science B.S. with a Specialization in Bioinformatics",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Biochemistry/Chemistry B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Bioinformatics B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Chemical Education B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Chemical Physics B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Chemistry B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+
+	{
+	"Name": "Environmental Chemistry B.S.",
+	"Description": "",
+	"ReqCourse": [""],
+	"Elective": [""],
+	"MiscElective": [""],
+	},
+]
