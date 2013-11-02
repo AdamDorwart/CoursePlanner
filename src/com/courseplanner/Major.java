@@ -1,48 +1,49 @@
 package com.courseplanner;
 
+
 public class Major {
-	private String name;
-	private String code;
-	private String description;
-	private String[] reqCourse;
-	private String[] elective;
-	private String[] miscElective;
+	private String Name;
+	private String Code;
+	private String Description;
+	private String[] ReqCourse;
+	private String[] Elective;
+	private String[] MiscElective;
 	
 	public String getCode() {
-		return code;
+		return Code;
 	}
 	public void setCode(String code) {
-		this.code = code;
+		this.Code = code;
 	}
 	public String getName() {
-		return name;
+		return Name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.Name = name;
 	}
 	public String getDescription() {
-		return description;
+		return Description;
 	}
 	public void setDescription(String description) {
-		this.description = description;
+		this.Description = description;
 	}
 	public String[] getReqCourse() {
-		return reqCourse;
+		return ReqCourse;
 	}
 	public void setReqCourse(String[] reqCourse) {
-		this.reqCourse = reqCourse;
+		this.ReqCourse = reqCourse;
 	}
 	public String[] getElective() {
-		return elective;
+		return Elective;
 	}
 	public void setElective(String[] elective) {
-		this.elective = elective;
+		this.Elective = elective;
 	}
 	public String[] getMiscElective() {
-		return miscElective;
+		return MiscElective;
 	}
 	public void setMiscElective(String[] miscElective) {
-		this.miscElective = miscElective;
+		this.MiscElective = miscElective;
 	}
 	
 }
