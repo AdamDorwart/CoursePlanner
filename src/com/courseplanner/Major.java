@@ -3,18 +3,11 @@ package com.courseplanner;
 
 public class Major {
 	private String Name;
-	private String Code;
 	private String Description;
 	private String[] ReqCourse;
 	private String[] Elective;
 	private String[] MiscElective;
 	
-	public String getCode() {
-		return Code;
-	}
-	public void setCode(String code) {
-		this.Code = code;
-	}
 	public String getName() {
 		return Name;
 	}
