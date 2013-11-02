@@ -14,10 +14,12 @@
 
     <script type="text/javascript" src="assets/javascript/services/user_service.js"></script>
     <script type="text/javascript" src="assets/javascript/services/class_list_service.js"></script>
+    <script type="text/javascript" src="assets/javascript/services/details_pane_service.js"></script>
 
     <script type="text/javascript" src="assets/javascript/controllers/user_controller.js"></script>
     <script type="text/javascript" src="assets/javascript/controllers/class_index_controller.js"></script>
     <script type="text/javascript" src="assets/javascript/controllers/planner_controller.js"></script>
+    <script type="text/javascript" src="assets/javascript/controllers/details_pane_controller.js"></script>
 
     <script type="text/javascript" src="assets/javascript/directives/dk_toggle_click.js"></script>
 
@@ -77,6 +79,7 @@
             class="class-item"
             x-lvl-draggable="true"
             data-course-id="{{class.course_id}}"
+            ng-click="showDetails(course)"
             ng-show="showGeClasses">
             <span class="class-id">{{ class.course_id }}</span>
             <span class="class-name" ng-attr-title="{{class.name}}">{{ class.name }}</span>
@@ -93,6 +96,7 @@
             class="class-item"
             x-lvl-draggable="true"
             data-course-id="{{class.course_id}}"
+            ng-click="showDetails(course)"
             ng-show="showMrClasses">
             <span class="class-id">{{ class.course_id }}</span>
             <span class="class-name" ng-attr-title="{{class.name}}">{{ class.name }}</span>
@@ -107,6 +111,7 @@
             class="class-item"
             x-lvl-draggable="true"
             data-course-id="{{class.course_id}}"
+            ng-click="showDetails(course)"
             ng-show="showMeClasses">
             <span class="class-id">{{ class.course_id }}</span>
             <span class="class-name" ng-attr-title="{{class.name}}">{{ class.name }}</span>
@@ -179,6 +184,14 @@
             </div>
 
           </div>
+        </div>
+
+        <div
+          class="row details-pane"
+          ng-controller="DetailsPaneController">
+
+
+
         </div>
 
       </div>
