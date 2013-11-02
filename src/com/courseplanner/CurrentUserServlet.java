@@ -47,7 +47,7 @@ public class CurrentUserServlet extends HttpServlet {
 			PreparedQuery userQuery = datastore.prepare(query);
 			Entity userDataEntity = userQuery.asSingleEntity();
 			respJson = gson.toJsonTree(user);
-						
+
 			if (userDataEntity != null) {
 				String courseJsonString = (String) userDataEntity
 						.getProperty("courseJsonString");
