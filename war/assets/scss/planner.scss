@@ -72,4 +72,16 @@
   .class-item {
     border: 1px solid $topbar-bg;
   }
+
+  .class-item-button {
+    background-color: $topbar-bg;
+    color: white;
+    float: right;
+
+    height: 1.2em;
+  }
+
+  .class-item {
+    padding: .25em;
+  }
 }

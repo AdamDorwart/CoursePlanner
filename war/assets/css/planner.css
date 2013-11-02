@@ -66,3 +66,10 @@ meta.foundation-mq-large {
       padding: 1em; }
   .planner .class-item {
     border: 1px solid #333333; }
+  .planner .class-item-button {
+    background-color: #333333;
+    color: white;
+    float: right;
+    height: 1.2em; }
+  .planner .class-item {
+    padding: .25em; }
