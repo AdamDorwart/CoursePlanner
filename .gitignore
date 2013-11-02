@@ -2,3 +2,6 @@
 *.sublime-project
 *.sublime-workspace
 .DS_Store
+
+.sass-cache
+war/assets/css/foundation/
