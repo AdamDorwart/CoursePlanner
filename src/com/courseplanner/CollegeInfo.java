@@ -2,10 +2,7 @@ package com.courseplanner;
 
 
 import com.google.appengine.api.datastore.*;
-import com.google.appengine.labs.repackaged.org.json.JSONException;
-import com.google.appengine.labs.repackaged.org.json.JSONObject;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+
 
 
 public class CollegeInfo {
@@ -13,7 +10,7 @@ public class CollegeInfo {
 	public void insertCollegeInfo () {
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
-		JSONObject Muir = new JSONObject();
+
 		String[] muirGE = {"MCWP 40","MCWP 50"};
 		
 		// Strings of table html for misc GEs
@@ -23,24 +20,18 @@ public class CollegeInfo {
 				+ "<tr> <td><sup>German</sup></td> <td>Choose 3 from&nbsp;LIGM 1A+1AX<span>, 1B+1BX, 1C+1CX, or 1D+1DX; or LTFR 2A, 2B, 2C or 50</span></td> </tr> <tr> <td><sup>Hebrew</sup></td> <td>JUDA 1</td> <td>JUDA 2</td> <td>JUDA 3</td> </tr> <tr> <td><sup>Italian</sup></td> <td><span>Choose 3 from&nbsp;LIIT 1A+1AX</span><span>, 1B+1BX, 1C+1CX, or 1D+1DX; or LTIT 2A, 2B or 50</span></td> </tr> <tr> <td><sup>Japanese</sup></td> <td>Choose 3 from<br> JAPN 10A, 10B, 10C, 20A, 20B, or 20C</td> </tr> <tr> <td><sup>Korean</sup></td> <td>Choose 3 from LTKO 1A, 1B, 1C, 2A, 2B, or 2C</td> </tr> <tr> <td><sup>Latin</sup></td> <td>LTLA 1</td> <td>LTLA 2</td> <td>LTLA 3</td> </tr> <tr> <td><sup>Portuguese</sup></td> <td>LIPO 1A+1AX</td> <td>LIPO 1B+1BX</td> <td>LIPO 1C+1CX</td> </tr> <tr> <td><sup>Russian</sup></td> <td>Choose 3 from LTRU 1A, 1B, 1C, 2A, 2B, or 2C</td> </tr> <tr> <td><sup>Spanish</sup></td> <td><span>Choose 3 from&nbsp;LISP 1A+1AX</span><span>, 1B+1BX, 1C+1CX, or 1D+1DX; LISP 2A, 2B, 2C, 2D, 2E, 50A, 50B, or 50C</span></td> </tr> </tbody> </table><table> <tbody> <tr> <td>Sequence</td> <td>Course 1</td> <td>Course 2</td> <td>Course 3</td> </tr> <tr> <td><sup>British &amp; American Literature</sup></td> <td>Choose 3 from LTEN 22, 23, 25, or 26</td> </tr> <tr> <td><sup>Fiction &amp; Film in 20th Century</sup></td> <td>Choose 3 from LTWL 4A, 4B, 4C, 4D, 4F, or 4M</td> </tr> <tr> <td><sup>Fiction, Poetry, &amp; Non-Fiction Writing</sup></td> <td>LTWR 8A</td> <td>LTWR 8B</td> <td>LTWR 8C</td> </tr> <tr> <td><sup>History of China and"
 				+ " Japan</sup></td> <td>HILD 10</td> <td>HILD 11</td> <td>HILD 12</td> </tr> <tr> <td><sup>History of Philosophy</sup></td> <td>PHIL 31</td> <td>PHIL 32</td> <td>PHIL 33</td> </tr> <tr> <td><sup>Introduction to Greeks &amp; Romans</sup></td> <td>LTWL 19A</td> <td>LTWL 19B</td> <td>LTWL 19C</td> </tr> <tr> <td><sup>Introduction to Philosophy</sup></td> <td>Choose 3 from PHIL 1, 13, 14, or 15</td> </tr> <tr> <td><sup>Race &amp; Ethnicity in U.S. History</sup></td> <td>HILD 7A</td> <td>HILD 7B</td> <td>HILD 7C</td> </tr> <tr> <td><sup>Race &amp; Ethnicity in U.S. Literature</sup></td> <td>LTEN 27</td> <td>LTEN 28</td> <td>LTEN 29</td> </tr> <tr> <td><sup>Third World Literature</sup></td> <td>Choose 3 from TWS 21, 22, 23, 24, 25 or 26</td> </tr> <tr> <td><sup>U.S. History</sup></td> <td>HILD 2A</td> <td>HILD 2B</td> <td>HILD 2C</td> </tr> </tbody> </table>";
 		
-		
-		try {
-			Muir.put("name", "Muir");
-			Muir.put("description", "Muir College encourages awareness of environmental "
+		Entity college = new Entity("collegeTable");
+		Entity Muir = new Entity("college", college.getKey());
+		Muir.setProperty("name", "Muir");
+		Muir.setProperty("description", "Muir College encourages awareness of environmental "
 				   + "issues and involvement in environmental preservation and "
 				   + "sustainability.");
-			Muir.put("geReqs", muirGE);
-			Muir.put("Social Sciences", area1);
-			Muir.put("Math/Natural Sciences", area2);
-			Muir.put("Fine Art/Foreign Lang/Humanities", area3);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+		Muir.setProperty("geReqs", muirGE);
+		Muir.setProperty("area1", area1);
+		Muir.setProperty("area1", area2);
+		Muir.setProperty("area1", area3);
 
-		String temp = Muir.toString();
-		JsonParser parser = new JsonParser();
-		JsonObject converted = (JsonObject)parser.parse(temp);
-		datastore.put(helperFunctions.jsonToEntity(converted));
+		datastore.put(Muir);
 
 	}
     
