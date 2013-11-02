@@ -41,7 +41,7 @@ public class CourseInfoServlet extends HttpServlet {
 			  courseInfo.add(newJsonObj);
 			}
 			catch (Exception e) {
-				System.out.println("error!");
+				System.out.println( e.toString());
 			}
 
 			  

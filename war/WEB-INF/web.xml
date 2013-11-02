@@ -38,7 +38,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	    <servlet-name>CourseInfoServlet</servlet-name>
 	    <url-pattern>/course_info</url-pattern>
 	</servlet-mapping>
-		<servlet>
+	<servlet>
+	    <servlet-name>CourseDetailServlet</servlet-name>
+	    <servlet-class>com.courseplanner.CourseDetailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>CourseDetailServlet</servlet-name>
+	    <url-pattern>/course_detail</url-pattern>
+	</servlet-mapping>
+	<servlet>
 	    <servlet-name>CollegeDatastoreBuilder</servlet-name>
 	    <servlet-class>com.courseplanner.CollegeDatastoreBuilderServlet</servlet-class>
 	</servlet>
