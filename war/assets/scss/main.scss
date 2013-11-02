@@ -3,3 +3,13 @@
 /**
  * Application wide scss styles here
  */
+
+[draggable] {
+  /* not applied by the directive, but useful to indicate a draggable element */
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: move;
+  border:1px solid black;
+}

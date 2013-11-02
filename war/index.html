@@ -1,29 +1,34 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
-<!-- above set at the top of the file will set     -->
-<!-- the browser's rendering engine into           -->
-<!-- "Quirks Mode". Replacing this declaration     -->
-<!-- with a "Standards Mode" doctype is supported, -->
-<!-- but may lead to some differences in layout.   -->
-
 <html ng-app="CoursePlannerApp">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Hello App Engine</title>
 
+    <!-- Vendored JS -->
     <script type="text/javascript" src="assets/javascript/angular.js"></script>
+    <script type="text/javascript" src="assets/javascript/lvlDragDrop/script/lvl-drag-drop.js"></script>
+    <script type="text/javascript" src="assets/javascript/lvlDragDrop/script/lvl-uuid.js"></script>
+
+    <!-- Application javascripts -->
     <script type="text/javascript" src="assets/javascript/course_planner.js"></script>
 
     <script type="text/javascript" src="assets/javascript/services/user_service.js"></script>
+    <script type="text/javascript" src="assets/javascript/services/class_list_service.js"></script>
 
     <script type="text/javascript" src="assets/javascript/controllers/user_controller.js"></script>
+    <script type="text/javascript" src="assets/javascript/controllers/class_index_controller.js"></script>
+    <script type="text/javascript" src="assets/javascript/controllers/planner_controller.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/directives/dk_toggle_click.js"></script>
 
     <link rel="stylesheet" href="assets/css/foundation.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/topbar.css">
+    <link rel="stylesheet" href="assets/css/class-list.css">
+    <link rel="stylesheet" href="assets/css/planner.css">
   </head>
 
-  <body class="row">
+  <body>
 
     <nav
       class="top-bar"
@@ -45,6 +50,155 @@
         </ul>
       </section>
     </nav>
+
+    <div class="main-container row">
+
+      <div
+        class="class-index columns large-3"
+        ng-controller="ClassIndexController">
+
+        <div class="search-box">
+          <form ng-submit>
+            <input
+              type="text"
+              placeholder="Search Classes..."
+              ng-model="searchString">
+          </form>
+        </div>
+
+        <ul class="class-list">
+          <li
+            dk-toggle-click="showGeClasses"
+            ng-class="{collapsed: !showGeClasses}"
+            class="separator"
+            ng-show="geClasses.length">General Education</li>
+          <li
+            ng-repeat="class in geClasses"
+            class="class-item"
+            x-lvl-draggable="true"
+            data-course-id="{{class.course_id}}"
+            ng-show="showGeClasses">
+            <span class="class-id">{{ class.course_id }}</span>
+            <span class="class-name" ng-attr-title="{{class.name}}">{{ class.name }}</span>
+          </li>
+
+          <li
+            dk-toggle-click="showMrClasses"
+            ng-class="{collapsed: !showMrClasses}"
+            class="separator"
+            ng-show="mrClasses.length">Major Requirements</li>
+          <li
+            ng-repeat="class in mrClasses"
+            ng-class="{collapsed: !showMeClasses}"
+            class="class-item"
+            x-lvl-draggable="true"
+            data-course-id="{{class.course_id}}"
+            ng-show="showMrClasses">
+            <span class="class-id">{{ class.course_id }}</span>
+            <span class="class-name" ng-attr-title="{{class.name}}">{{ class.name }}</span>
+          </li>
+
+          <li
+            dk-toggle-click="showMeClasses"
+            class="separator"
+            ng-show="meClasses.length">Major Electives</li>
+          <li
+            ng-repeat="class in meClasses"
+            class="class-item"
+            x-lvl-draggable="true"
+            data-course-id="{{class.course_id}}"
+            ng-show="showMeClasses">
+            <span class="class-id">{{ class.course_id }}</span>
+            <span class="class-name" ng-attr-title="{{class.name}}">{{ class.name }}</span>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="right-column columns large-9">
+
+        <div class="row">
+          <div
+            ng-controller="PlannerController"
+            class="class planner columns large-12">
+
+            <table class="quarter-header">
+              <tr>
+                <td>Fall</td>
+                <td>Winter</td>
+                <td>Spring</td>
+              </tr>
+            </table>
+
+            <div class="year-rows">
+              <table
+                class="year"
+                ng-repeat="year in years">
+
+                <tr>
+                  <td
+                    x-lvl-drop-target="true"
+                    x-on-drop="dropped(dragEl, dropEl)"
+                    data-year-number="{{$parent.$index}}"
+                    data-quarter-number="0"
+                    class="quarter fall">
+
+                    <ul>
+                      <li
+                        ng-repeat="course in $parent.year[0]"
+                        class="class-item">
+                        {{course.course_id}}
+                        <button ng-click="removeFromSchedule(course)" class="remove-course">X</button>
+                      </li>
+                    </ul>
+
+                  </td>
+                  <td
+                    x-lvl-drop-target="true"
+                    x-on-drop="dropped(dragEl, dropEl)"
+                    data-year-number="{{$parent.$index}}"
+                    data-quarter-number="1"
+                    class="quarter winter">
+
+                    <ul>
+                      <li
+                        ng-repeat="course in $parent.year[1]"
+                        class="class-item">
+                        {{course.course_id}}
+                        <button ng-click="removeFromSchedule(course)" class="remove-course">X</button>
+                      </li>
+                    </ul>
+
+                  </td>
+                  <td
+                    x-lvl-drop-target="true"
+                    x-on-drop="dropped(dragEl, dropEl)"
+                    data-year-number="{{$parent.$index}}"
+                    data-quarter-number="2"
+                    class="quarter spring">
+
+                    <ul>
+                      <li
+                        ng-repeat="course in $parent.year[2]"
+                        class="class-item">
+                        {{course.course_id}}
+                        <button ng-click="removeFromSchedule(course)" class="remove-course">X</button>
+                      </li>
+                    </ul>
+
+                  </td>
+                </tr>
+
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
 
   </body>
 </html>

@@ -11,8 +11,8 @@
   box-sizing: border-box; }
 
 meta.foundation-mq-small {
-  font-family: "only screen and (min-width: 768px)";
-  width: 768px; }
+  font-family: "only screen and (min-width: 0)";
+  width: 0; }
 
 meta.foundation-mq-medium {
   font-family: "only screen and (min-width: 1280px)";
@@ -26,3 +26,7 @@ nav.top-bar {
   color: white; }
   nav.top-bar li.name {
     padding-right: 1em; }
+    nav.top-bar li.name a {
+      text-decoration: none; }
+  nav.top-bar .top-bar-section ul {
+    background: #333333; }

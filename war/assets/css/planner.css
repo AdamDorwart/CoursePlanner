@@ -1,0 +1,68 @@
+/*
+ * Import to only include foundation variables and mixins
+ */
+/*
+ * Define the foundation override varaibles here, as well as the
+ * foundation components to include
+ */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+meta.foundation-mq-small {
+  font-family: "only screen and (min-width: 0)";
+  width: 0; }
+
+meta.foundation-mq-medium {
+  font-family: "only screen and (min-width: 1280px)";
+  width: 1280px; }
+
+meta.foundation-mq-large {
+  font-family: "only screen and (min-width: 1440px)";
+  width: 1440px; }
+
+.planner {
+  padding: 1em; }
+  .planner ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .planner table {
+    table-layout: fixed; }
+  .planner table.quarter-header {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #333333;
+    border-bottom: none;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em; }
+  .planner .year-rows {
+    border: 1px solid #333333;
+    border-top: none;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em; }
+    .planner .year-rows table {
+      border-collapse: collapse; }
+    .planner .year-rows table td, .planner .year-rows table th {
+      border: 1px solid black; }
+    .planner .year-rows table tr:first-child th {
+      border-top: 0; }
+    .planner .year-rows table tr:last-child td {
+      border-bottom: 0; }
+    .planner .year-rows table tr td:first-child,
+    .planner .year-rows table tr th:first-child {
+      border-left: 0; }
+    .planner .year-rows table tr td:last-child,
+    .planner .year-rows table tr th:last-child {
+      border-right: 0; }
+    .planner .year-rows .year {
+      width: 100%;
+      margin: 0;
+      padding: 0; }
+    .planner .year-rows .year-rows > ul {
+      margin: 0; }
+    .planner .year-rows .quarter {
+      padding: 1em; }
+  .planner .class-item {
+    border: 1px solid #333333; }

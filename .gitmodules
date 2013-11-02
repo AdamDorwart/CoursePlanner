@@ -1,3 +1,6 @@
 [submodule "war/assets/scss/foundation"]
 	path = war/assets/scss/foundation
 	url = https://github.com/zurb/foundation.git
+[submodule "war/assets/javascript/lvlDragDrop"]
+	path = war/assets/javascript/lvlDragDrop
+	url = https://github.com/logicbomb/lvlDragDrop.git

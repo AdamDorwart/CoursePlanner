@@ -1,0 +1,74 @@
+@import "foundation_imports";
+
+.search-box {
+  form, input {
+    margin: 0px;
+  }
+}
+
+ul.class-list {
+
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+  width: 100%;
+
+  li {
+    width: 100%;
+    padding-left: .5em;
+  }
+
+  .class-item {
+    @include padding-vertical(.25em);
+
+    border-top: 1px solid black;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid black;
+
+    background-color: white;
+  }
+
+  .separator {
+    margin-top: .5em;
+    padding: .5em;
+    // padding-left: .1em;
+
+    background-color: $topbar-bg;
+    color: white;
+
+    &::before {
+      padding-right: .5em;
+      content: "\25BC";
+    }
+  }
+
+  .collapsed {
+    font-style: italic;
+
+    &::before {
+      content: "\25B6";
+      font-style: normal;
+    }
+  }
+
+  .class-id {
+    font-weight: bold;
+  }
+
+  .class-name {
+    font-style: italic;
+    color: gray;
+
+    // white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inherit;
+  }
+
+  li:hover {
+    .class-name {
+      // overflow: visible;
+      background-color: white;
+    }
+  }
+
+}

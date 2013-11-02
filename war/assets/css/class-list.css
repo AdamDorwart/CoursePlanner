@@ -1,0 +1,64 @@
+/*
+ * Import to only include foundation variables and mixins
+ */
+/*
+ * Define the foundation override varaibles here, as well as the
+ * foundation components to include
+ */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+meta.foundation-mq-small {
+  font-family: "only screen and (min-width: 0)";
+  width: 0; }
+
+meta.foundation-mq-medium {
+  font-family: "only screen and (min-width: 1280px)";
+  width: 1280px; }
+
+meta.foundation-mq-large {
+  font-family: "only screen and (min-width: 1440px)";
+  width: 1440px; }
+
+.search-box form, .search-box input {
+  margin: 0px; }
+
+ul.class-list {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+  width: 100%; }
+  ul.class-list li {
+    width: 100%;
+    padding-left: .5em; }
+  ul.class-list .class-item {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    border-top: 1px solid black;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid black;
+    background-color: white; }
+  ul.class-list .separator {
+    margin-top: .5em;
+    padding: .5em;
+    background-color: #333333;
+    color: white; }
+    ul.class-list .separator::before {
+      padding-right: .5em;
+      content: "\25BC"; }
+  ul.class-list .collapsed {
+    font-style: italic; }
+    ul.class-list .collapsed::before {
+      content: "\25B6";
+      font-style: normal; }
+  ul.class-list .class-id {
+    font-weight: bold; }
+  ul.class-list .class-name {
+    font-style: italic;
+    color: gray;
+    text-overflow: ellipsis;
+    display: inherit; }
+  ul.class-list li:hover .class-name {
+    background-color: white; }

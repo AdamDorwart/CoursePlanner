@@ -1,0 +1,75 @@
+@import "foundation_imports";
+
+.planner {
+  padding: 1em;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  table.quarter-header {
+    width: 100%;
+    text-align: center;
+
+    border: 1px solid $topbar-bg;
+    border-bottom: none;
+
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+  }
+
+  .year-rows {
+
+    table {
+      border-collapse: collapse;
+    }
+    table td, table th {
+      border: 1px solid black;
+    }
+    table tr:first-child th {
+      border-top: 0;
+    }
+    table tr:last-child td {
+      border-bottom: 0;
+    }
+    table tr td:first-child,
+    table tr th:first-child {
+      border-left: 0;
+    }
+    table tr td:last-child,
+    table tr th:last-child {
+      border-right: 0;
+    }
+
+    border: 1px solid $topbar-bg;
+    border-top: none;
+
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+
+    .year {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+    }
+
+    .year-rows > ul {
+      margin: 0;
+    }
+
+    .quarter {
+      padding: 1em;
+    }
+  }
+
+  .class-item {
+    border: 1px solid $topbar-bg;
+  }
+}

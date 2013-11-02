@@ -7,7 +7,7 @@
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
-$small-screen: 768px;
+$small-screen: 0;
 $medium-screen: 1280px;
 $large-screen: 1440px;
 
@@ -22,7 +22,7 @@ $column-gutter: emCalc(30);
 $total-columns: 12;
 $row-width: 100%;
 
-$topbar-bg: #222;
+$topbar-bg: #333;
 
 $topbar-height: 50px;
 $topbar-margin-bottom: 0;
@@ -68,3 +68,4 @@ $large-only:  "only screen and (min-width:"#{$large-screen}")";
 @import "foundation/scss/foundation/components/buttons";
 @import "foundation/scss/foundation/components/forms";
 @import "foundation/scss/foundation/components/top-bar";
+@import "foundation/scss/foundation/components/dropdown";

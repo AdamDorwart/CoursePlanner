@@ -11,8 +11,8 @@
   box-sizing: border-box; }
 
 meta.foundation-mq-small {
-  font-family: "only screen and (min-width: 768px)";
-  width: 768px; }
+  font-family: "only screen and (min-width: 0)";
+  width: 0; }
 
 meta.foundation-mq-medium {
   font-family: "only screen and (min-width: 1280px)";
@@ -25,3 +25,11 @@ meta.foundation-mq-large {
 /**
  * Application wide scss styles here
  */
+[draggable] {
+  /* not applied by the directive, but useful to indicate a draggable element */
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: move;
+  border: 1px solid black; }
