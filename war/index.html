@@ -75,7 +75,6 @@
 
         <ul
           class="class-list"
-          ng-mouseout="clearDetails()"
           >
           <li
             dk-toggle-click="showGeClasses"
@@ -167,7 +166,6 @@
                         data-remove-on-drag = "true"
                         x-lvl-draggable = "true"
                         ng-mouseover="$parent.$parent.$parent.showDetails(course)"
-                        ng-mouseout ="$parent.$parent.$parent.clearDetails()"
                         class="class-item">
                         {{course.course_id}}
                         <a
@@ -178,7 +176,7 @@
                     </ul>
 
                     <div class="total-units" ng-show="$parent.quarter.length">
-                      Total Units: {{ $parent.totalUnits(quarter) }}
+                      Total Units: {{ $parent.$parent.$parent.totalUnits($parent.quarter) }}
                     </div>
 
                   </td>

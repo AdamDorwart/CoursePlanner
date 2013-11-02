@@ -77,6 +77,9 @@ meta.foundation-mq-large {
   .planner .year-label {
     width: 4em;
     text-align: center; }
+  .planner .total-units {
+    font-size: .5em;
+    float: right; }
 
 .details-pane {
   padding: 1em; }
