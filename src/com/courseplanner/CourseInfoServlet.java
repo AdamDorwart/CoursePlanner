@@ -27,10 +27,7 @@ public class CourseInfoServlet extends HttpServlet {
 		
 		JsonArray courseInfo = new JsonArray();
 		
-		Query courseTableQ = new Query("CourseTable");
-		Entity courseTable = datastore.prepare( courseTableQ).asSingleEntity();
-		
-		Query q = new Query("Course", courseTable.getKey()).addSort( "ID", SortDirection.ASCENDING);
+		Query q = new Query("Course").addSort( "ID", SortDirection.ASCENDING);
 		PreparedQuery pq = datastore.prepare(q);
 		for (Entity result : pq.asIterable()) {
 			JsonObject newJsonObj = new JsonObject();

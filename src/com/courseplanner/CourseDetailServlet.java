@@ -35,18 +35,8 @@ public class CourseDetailServlet extends HttpServlet {
 
 		
 		Filter courseIDMatch = new FilterPredicate( "ID", FilterOperator.EQUAL, req.getParameter( "course_id"));
-			
-		Query courseTableQ = new Query("CourseTable");
-		Entity courseTable = datastore.prepare( courseTableQ).asSingleEntity();
 				
-		Query q = new Query("Course", courseTable.getKey()).setFilter( courseIDMatch);
-		
-		q.addProjection( new PropertyProjection("ID", String.class));
-		q.addProjection( new PropertyProjection("Name", String.class));
-		q.addProjection( new PropertyProjection("Description", String.class));
-		q.addProjection( new PropertyProjection("Prereq", String.class));
-		q.addProjection( new PropertyProjection("Units", String.class));
-		
+		Query q = new Query("Course").setFilter( courseIDMatch);	
 		PreparedQuery pq = datastore.prepare(q);
 		Entity result = pq.asSingleEntity();
 		
