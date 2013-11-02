@@ -52,7 +52,7 @@ public class CurrentUserServlet extends HttpServlet {
 			respJson = gson.toJsonTree(user);
 
 			if (userDataEntity != null) {
-				String courseJsonString = (String) userDataEntity.getProperty("courseJsonString");
+				String courseJsonString = ( (Text) userDataEntity.getProperty("courseJsonString")).getValue();
 				respJson.getAsJsonObject().addProperty("courseJsonString",courseJsonString);
 			}
 			respJson.getAsJsonObject().addProperty("logoutUrl",userService.createLogoutURL(userService.createLoginURL("/")));

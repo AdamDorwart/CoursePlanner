@@ -164,6 +164,8 @@
                         data-course-id = "{{ course.course_id }}"
                         data-remove-on-drag = "true"
                         x-lvl-draggable = "true"
+                        ng-mouseover="$parent.$parent.$parent.showDetails(course)"
+                        ng-mouseout ="$parent.$parent.$parent.clearDetails()"
                         class="class-item">
                         {{course.course_id}}
                         <a

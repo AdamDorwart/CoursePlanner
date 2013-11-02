@@ -1,8 +1,8 @@
 (function() {
 
   coursePlannerApp.controller("PlannerController",
-  [       "$scope", "ClassListService", "$http", "$timeout", "UserService",
-  function($scope,   ClassListService,   $http,   $timeout,   UserService) {
+  [       "$scope", "ClassListService", "$http", "$timeout", "UserService", "DetailsPaneService",
+  function($scope,   ClassListService,   $http,   $timeout,   UserService,   DetailsPaneService) {
 
     // Four years per whatever
     $scope.years = [ [], [], [], [] ];
@@ -174,6 +174,16 @@
 
       return index;
     }
+
+    $scope.showDetails = function(course) {
+      console.log("Setting detail: ", course);
+
+      DetailsPaneService.setDetailFromCourse(course);
+    };
+
+    $scope.clearDetails = function() {
+      DetailsPaneService.clear();
+    };
 
   }]);
 
