@@ -1,11 +1,9 @@
 package com.courseplanner;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -18,6 +16,14 @@ public class DataStructureBuilder {
 	Map<String,String> courses = new HashMap<String,String>();//c1: courseID; c2: ID, Name, Description, Units, Prerequisites, Corequisites;
 
 	public DataStructureBuilder() {
+		String[] major_code = {"ANES","ANBI","ANAR","ANTH","ANSC","BENG","BFNO","BIEB","BICD","BIPN","BIBC","BGGN","BGRD","BGSE","BILD","BIMM","BISP","BIOM",
+				"CMM","CENG","CHEM","CHIN","CLIN","CLRE","COGS","COMM","COGR","CSE","ICAM","CGS","CAT","TDCH","TDHD","TDMV","TDTR","DOC","ECON","EDS","ERC",
+				"ECE","EMED","ENG","ESYS","ETHN","FPM","FPMU","FILM","GLBH","HLAW","HITO","HIAF","HIEA","HIEU","HILA","HISC","HINE","HIUS","HIGR","HILD",
+				"HDP","HMNR","HUM","INTL","IRCO","IRGN","IRLA","JAPN","JUDA","LATI","LHCO","LISL","LIAB","LIDS","LIFR","LIGN","LIGM","LIHL","LIIT","LIPO",
+				"LISP","LTAM","LTAF","LTCH","LTCO","LTCS","LTEU","LTFR","LTGM","LTGK","LTIT","LTKO","LTLA","LTRU","LTSP","LITH","LTWR","LTEA","MMW","MBC",
+				"MATS","MATH","MAE","MDE","MED","MUIR","MCWP","MUS","NANO","NEU","OPTH","ORTH","PATH","PEDS","PHAR","SPPS","PHIL","PHYS","POLI","PSY","PSYC",
+				"RMAS","RAD","MGTF","MGT","RELI","RMED","REV","SDCC","SOMI","SOMC","SIO","SOCG","SOCE","SOCI","SE","SURG","TDAC","TDDE","TDDR","TDGE","TDGR",
+				"TDHT","TDPW"};
 		String[] major_codes = {"ANTH","BENG","BIOL","BIOM","CMM","CHEM","CHIN","CLRE","CLPH",
 				"CLIN","COGS","COMM","CSE","ICAM","CGS","CAT","DOC","ECON","EDS","ERC","ECE",
 				"EMED","ESYS","ETHN","FPM","FPMU","FILM","GLBH","HLAW","HIST","HDP","HMNR",
