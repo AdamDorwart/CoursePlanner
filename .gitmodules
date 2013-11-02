@@ -1,0 +1,3 @@
+[submodule "war/assets/scss/foundation"]
+	path = war/assets/scss/foundation
+	url = https://github.com/zurb/foundation.git
