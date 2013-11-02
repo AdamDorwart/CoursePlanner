@@ -6,14 +6,17 @@
     var user = null;
 
     return {
-      get: function() {
-        if(!user) {
-          user = $http.get("/current_user");
+      get: function(cb) {
+        return $http.get("/current_user")
+          .success(function(data) {
+            if(data.loginUrl)
+            {
+              // Server sent a redirect string. Go to that.
+              window.location = data.loginUrl;
+            }
+          }).success(cb);
         }
-
-        return user;
-      }
-    };
+      };
 
   }]);
 })();

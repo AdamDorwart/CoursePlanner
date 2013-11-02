@@ -12,13 +12,39 @@
     <title>Hello App Engine</title>
 
     <script type="text/javascript" src="assets/javascript/angular.js"></script>
-    <script type="text/javascript" src="assets/javascript/controllers/"></script>
+    <script type="text/javascript" src="assets/javascript/course_planner.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/services/user_service.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/controllers/user_controller.js"></script>
 
     <link rel="stylesheet" href="assets/css/foundation.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/topbar.css">
   </head>
 
-  <body>
-    <h1>Hello App Engine!</h1>
+  <body class="row">
+
+    <nav
+      class="top-bar"
+      ng-controller="UserController"
+    >
+      <ul class="title-area">
+        <li class="name">
+          <h1>Course Planner</h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="left">
+        </ul>
+
+        <ul class="right">
+          <li class="name">Hello, {{user.email}}</li>
+          <li><a ng-href="{{user.logoutUrl}}">Log Out</a></li>
+        </ul>
+      </section>
+    </nav>
+
   </body>
 </html>

@@ -16,8 +16,9 @@ public class CoursePlannerServlet extends HttpServlet {
         User user = userService.getCurrentUser();
 
         if (user != null) {
-            resp.setContentType("text/plain");
+            resp.setContentType("text/html");
             resp.getWriter().println("Hello, " + user.getNickname());
+            resp.getWriter().println("<a href='" + userService.createLogoutURL("/") + "'>Log Out</a>");
         } else {
             resp.sendRedirect(userService.createLoginURL(req.getRequestURI()));
         }
