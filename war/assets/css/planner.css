@@ -83,6 +83,8 @@ meta.foundation-mq-large {
     float: right; }
   .planner .shadow-container {
     box-shadow: 5px 5px 10px 3px #888; }
+  .planner .course-list {
+    min-height: 3em; }
 
 .details-pane {
   padding: 1em; }

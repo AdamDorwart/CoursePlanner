@@ -156,7 +156,7 @@
                       data-quarter-number="{{ $parent.$index }}"
                       class="quarter fall">
 
-                      <ul>
+                      <ul class="course-list">
                         <li
                           ng-repeat="course in $parent.quarter"
                           data-course-id = "{{ course.course_id }}"
@@ -193,12 +193,12 @@
           ng-show="detail">
 
           <div class="head">{{ detail.course_id }} <small><i>({{ detail.units }} units)</i></small></div>
-          <div class="subhead">{{ detail.name }}</div>
+          <div class="subhead">{{ detail.name | htmlToPlaintext}}</div>
           <hr>
 
-          <div class="prereqs">Pre/Coreqs: {{ detail.prereq }}</div>
+          <div class="prereqs"><b>Pre/Coreqs:</b>r {{ detail.prereq | htmlToPlaintext}}</div>
           <hr>
-          <div class="details">Course Description <i>{{ detail.description }}</i></div>
+          <div class="details"><b>Course Description:</b> <i>{{ detail.description | htmlToPlaintext }}</i></div>
 
         </div>
 

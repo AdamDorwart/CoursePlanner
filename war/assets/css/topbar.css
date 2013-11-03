@@ -26,6 +26,8 @@ nav.top-bar {
   color: white; }
   nav.top-bar li.name {
     padding-right: 1em; }
+    nav.top-bar li.name h1 {
+      font-size: 1.5em; }
     nav.top-bar li.name a {
       text-decoration: none; }
   nav.top-bar .top-bar-section ul {
