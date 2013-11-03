@@ -33,3 +33,7 @@ meta.foundation-mq-large {
   user-select: none;
   cursor: move;
 }
+
+body {
+  background-color: #EEE;
+}
