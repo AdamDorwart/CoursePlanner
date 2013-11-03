@@ -187,7 +187,14 @@
       if(!quarter) { return total; }
 
       quarter.forEach(function(course) {
-        total += parseInt(course.units) || 0;
+
+        if(course.units)
+        {
+          var split = course.units.split("-");
+          split.forEach(function(num) {
+            total += parseInt(num || 0);
+          });
+        }
       });
 
       return total;

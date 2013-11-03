@@ -79,6 +79,7 @@ meta.foundation-mq-large {
     width: 4em;
     text-align: center; }
   .planner .total-units {
+    border-top: 1px dotted black;
     font-size: .75em;
     float: right; }
   .planner .shadow-container {
