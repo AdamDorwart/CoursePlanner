@@ -45,7 +45,8 @@ meta.foundation-mq-large {
     .planner .year-rows table {
       border-collapse: collapse; }
     .planner .year-rows table td, .planner .year-rows table th {
-      border: 1px solid black; }
+      border: 1px solid black;
+      background-color: white; }
     .planner .year-rows table tr:first-child th {
       border-top: 0; }
     .planner .year-rows table tr:last-child td {
@@ -80,6 +81,8 @@ meta.foundation-mq-large {
   .planner .total-units {
     font-size: .75em;
     float: right; }
+  .planner .shadow-container {
+    box-shadow: 5px 5px 10px 3px #888; }
 
 .details-pane {
   padding: 1em; }

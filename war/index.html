@@ -131,55 +131,58 @@
             ng-controller="PlannerController"
             class="class planner columns large-12">
 
-            <table class="quarter-header">
-              <tr>
-                <td class="year-label"></td>
-                <td>Fall</td>
-                <td>Winter</td>
-                <td>Spring</td>
-              </tr>
-            </table>
-
-            <div class="year-rows">
-              <table
-                class="year"
-                ng-repeat="year in years">
-
+            <div class="shadow-container">
+              <table class="quarter-header">
                 <tr>
-                  <td class="year-label">Year {{ $index+1 }}</td>
-                  <td
-                    ng-repeat="quarter in year"
-                    x-lvl-drop-target="true"
-                    x-on-drop="dropped(dragEl, dropEl)"
-                    data-year-number="{{$parent.$parent.$index}}"
-                    data-quarter-number="{{ $parent.$index }}"
-                    class="quarter fall">
-
-                    <ul>
-                      <li
-                        ng-repeat="course in $parent.quarter"
-                        data-course-id = "{{ course.course_id }}"
-                        data-remove-on-drag = "true"
-                        x-lvl-draggable = "true"
-                        ng-mouseover="$parent.$parent.$parent.showDetails(course)"
-                        class="class-item">
-                        {{course.course_id}}
-                        <a
-                          ng-click="$parent.$parent.$parent.removeFromSchedule(course)"
-                          class="class-item-button"
-                          title="Remove Course">X</a>
-                      </li>
-                    </ul>
-
-                    <div class="total-units" ng-show="$parent.quarter.length">
-                      Total Units: {{ $parent.$parent.$parent.totalUnits($parent.quarter) }}
-                    </div>
-
-                  </td>
+                  <td class="year-label"></td>
+                  <td>Fall</td>
+                  <td>Winter</td>
+                  <td>Spring</td>
                 </tr>
-
               </table>
+
+              <div class="year-rows">
+                <table
+                  class="year"
+                  ng-repeat="year in years">
+
+                  <tr>
+                    <td class="year-label">Year {{ $index+1 }}</td>
+                    <td
+                      ng-repeat="quarter in year"
+                      x-lvl-drop-target="true"
+                      x-on-drop="dropped(dragEl, dropEl)"
+                      data-year-number="{{$parent.$parent.$index}}"
+                      data-quarter-number="{{ $parent.$index }}"
+                      class="quarter fall">
+
+                      <ul>
+                        <li
+                          ng-repeat="course in $parent.quarter"
+                          data-course-id = "{{ course.course_id }}"
+                          data-remove-on-drag = "true"
+                          x-lvl-draggable = "true"
+                          ng-mouseover="$parent.$parent.$parent.showDetails(course)"
+                          class="class-item">
+                          {{course.course_id}}
+                          <a
+                            ng-click="$parent.$parent.$parent.removeFromSchedule(course)"
+                            class="class-item-button"
+                            title="Remove Course">X</a>
+                        </li>
+                      </ul>
+
+                      <div class="total-units" ng-show="$parent.quarter.length">
+                        Total Units: {{ $parent.$parent.$parent.totalUnits($parent.quarter) }}
+                      </div>
+
+                    </td>
+                  </tr>
+
+                </table>
+              </div>
             </div>
+
 
           </div>
         </div>
